@@ -1,19 +1,23 @@
-{{ form_start(form) }}
+<div class="container">
+    {{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
 
-{% if not form.vars.valid %}
-    <div class="errors">
-        {{ form_errors(form) }}
+    <div class="mb-4">  {# Ajout d'un espacement avec `mb-4` pour les titres #}
+        <h4 class="mb-3 text-primary">Modifier une localité</h4>
+        {{ form_label(form.name, 'Nom de la localité', {'label_attr': {'class': 'form-label fw-bold'}}) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Ex: Paris'}}) }}
+        <div class="form-text">Entrez le nom de la localité.</div>
     </div>
-{% endif %}
 
-<div>
-    {{ form_label(form.name, 'Nom de la localité') }} 
-    {{ form_widget(form.name) }}
-    {{ form_help(form.name) }}
+    <hr class="my-4"> {# Séparation visuelle entre le champ et les boutons #}
+
+    <div class="d-flex justify-content-between mt-4"> {# Ajout d'espace autour des boutons #}
+        <button type="submit" class="btn btn-success px-4 py-2">
+            <i class="bi bi-check-circle"></i> {{ button_label|default('Enregistrer') }}
+        </button>
+        <a href="{{ path('app_locality_index') }}" class="btn btn-secondary px-4 py-2 ms-3"> {# Espacement horizontal avec `ms-3` #}
+            <i class="bi bi-arrow-left"></i> Retour
+        </a>
+    </div>
+
+    {{ form_end(form) }}
 </div>
-
-<button type="submit" class="btn btn-primary">
-    {{ button_label|default('Enregistrer') }}
-</button>
-
-{{ form_end(form) }}

@@ -1,4 +1,23 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container">
+    {{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
+
+    <div class="mb-4">
+        <h4 class="mb-3 text-primary">Gestion du Type</h4>
+        {{ form_label(form.name, 'Nom du Type', {'label_attr': {'class': 'form-label fw-bold'}}) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Ex: Musique'}}) }}
+        <div class="form-text">Entrez le nom du type.</div>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="d-flex justify-content-between mt-4">
+        <button type="submit" class="btn btn-success px-4 py-2">
+            <i class="bi bi-check-circle"></i> {{ button_label|default('Enregistrer') }}
+        </button>
+        <a href="{{ path('app_type_index') }}" class="btn btn-secondary px-4 py-2 ms-3">
+            <i class="bi bi-arrow-left"></i> Retour
+        </a>
+    </div>
+
+    {{ form_end(form) }}
+</div>

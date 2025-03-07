@@ -1,35 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Role index{% endblock %}
+{% block title %}Liste des Rôles{% endblock %}
 
 {% block body %}
-    <h1>Role index</h1>
+<div class="container mt-5">
+    <h2 class="mb-4">Liste des Rôles</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for role in roles %}
-            <tr>
-                <td>{{ role.id }}</td>
-                <td>{{ role.title }}</td>
-                <td>
-                    <a href="{{ path('app_role_show', {'id': role.id}) }}">show</a>
-                    <a href="{{ path('app_role_edit', {'id': role.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="card shadow p-4">
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for role in roles %}
+                    <tr>
+                        <td>{{ role.id }}</td>
+                        <td>{{ role.title }}</td>
+                        <td>
+                            <a href="{{ path('app_role_show', {'id': role.id}) }}" class="btn btn-info btn-sm">
+                                <i class="bi bi-eye"></i> Voir
+                            </a>
+                            <a href="{{ path('app_role_edit', {'id': role.id}) }}" class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil"></i> Modifier
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3" class="text-center">Aucun rôle trouvé</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ path('app_role_new') }}">Create new</a>
+    <div class="mt-3">
+        <a href="{{ path('app_role_new') }}" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Ajouter un Rôle
+        </a>
+    </div>
+</div>
 {% endblock %}

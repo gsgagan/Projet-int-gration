@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une localité{% endblock %}
+
+{% block body %}
+    <h2>Créer une localité</h2>
+
+    {{ include('locality/_form.html.twig', {'http_method': 'POST', 'button_label': 'Ajouter'}) }}
+
+    <nav><a href="{{ path('app_locality_index') }}">Retour à l'index</a></nav>
+{% endblock %}

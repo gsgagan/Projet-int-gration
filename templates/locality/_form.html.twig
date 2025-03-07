@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+
+{% if not form.vars.valid %}
+    <div class="errors">
+        {{ form_errors(form) }}
+    </div>
+{% endif %}
+
+<div>
+    {{ form_label(form.name, 'Nom de la localité') }} 
+    {{ form_widget(form.name) }}
+    {{ form_help(form.name) }}
+</div>
+
+<button type="submit" class="btn btn-primary">
+    {{ button_label|default('Enregistrer') }}
+</button>
+
+{{ form_end(form) }}

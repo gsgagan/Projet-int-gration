@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une localité{% endblock %}
+
+{% block body %}
+    <h2>Modifier une localité</h2>
+
+    {{ include('locality/_form.html.twig', {'http_method': 'PUT', 'button_label': 'Modifier'}) }}
+
+    <p><a href="{{ path('app_locality_show', {'id': locality.id}) }}">Annuler</a></p>
+
+    <nav><a href="{{ path('app_locality_index') }}">Retour à l'index</a></nav>
+{% endblock %}

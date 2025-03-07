@@ -6,6 +6,7 @@ use App\Repository\LocalityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LocalityRepository::class)]
+#[ORM\Table(name: "locality")] // Ajout du nom de la table
 class Locality
 {
     #[ORM\Id]

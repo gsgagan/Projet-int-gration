@@ -6,6 +6,7 @@ use App\Repository\RoleRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RoleRepository::class)]
+#[ORM\Table(name: "role")] // Ajout du nom de la table
 class Role
 {
     #[ORM\Id]

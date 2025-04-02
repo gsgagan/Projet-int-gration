@@ -4,14 +4,226 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+        <!--{% block stylesheets %}
+        {% endblock %}-->
 
-        {% block javascripts %}
+        <!--{% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+        {% endblock %}-->
+        <!-- Basic Page Needs -->
+        <meta charset="utf-8">
+        <title>Be</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Mobile Specific Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="content/adventure/images/favicon.ico">
+
+        <!-- FONTS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,700'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Patua+One:100,300,400,400italic,700'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Serif:100,300,400,400italic,500,600,700,700italic'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Poppins:100,300,400,400italic,500,600,700,700italic'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Cormorant+Garamond:100,300,400,400italic,500,600,700,700italic'>
+
+        <!-- CSS -->
+        <link rel='stylesheet' href='{{ asset('assets/css/global.css') }}'>
+        <link rel='stylesheet' href={{ asset('assets/css/structure.css') }}>
+        <link rel='stylesheet' href={{ asset('assets/css/adventure.css') }}>
+        <link rel='stylesheet' href={{ asset('assets/css/custom.css') }}>
+
+        <!-- Revolution Slider -->
+        <link rel="stylesheet" href={{ asset('assets/css/plugins/rs-plugin/css/settings.css') }}>
     </head>
+    <div id="Header_creative">
+        <a href="#" class="creative-menu-toggle"><i class="icon-menu-fine"></i></a>
+        <div class="creative-social">
+
+        </div>
+        <div class="creative-wrapper">
+            <div class="header_placeholder"></div>
+            <div id="Top_bar">
+                <div class="one clearfix">
+                    <div class="top_bar_left">
+                        <div class="logo">
+                            <a id="logo" href="index-adventure.html" title="BeAdventure - BeTheme" data-height="60" data-padding="75"><img class="logo-main scale-with-grid" src="content/adventure/images/supplier-retina.png" data-retina="content/adventure/images/supplier.png" data-height="99"><img class="logo-sticky scale-with-grid" src="content/adventure/images/supplier-retina.png" data-retina="content/adventure/images/supplier.png" data-height="99"><img class="logo-mobile scale-with-grid" src="content/adventure/images/supplier-retina.png" data-retina="content/adventure/images/supplier.png" data-height="99"><img class="logo-mobile-sticky scale-with-grid" src="content/adventure/images/supplier-retina.png" data-retina="content/adventure/images/supplier.png" data-height="99"></a>
+                        </div>
+                        <div class="menu_wrapper">
+                            <nav id="menu">
+                                <ul id="menu-menu" class="menu menu-main">
+                                    <li class="current-menu-item">
+                                        <a href="index-adventure.html"><span>Home</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('app_inscription') }}"><span>Inscription</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="content/adventure/adventure-stories.html"><span>Adventure Stories</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="content/adventure/photos.html"><span>Photos</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="content/adventure/adventure-book.html"><span>My book</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="content/adventure/contact.html"><span>Contact</span></a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="http://bit.ly/1M6lijQ"><span><span style="color:#ffdfbf">Buy now</span></span></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <a class="responsive-menu-toggle" href="#"><i class="icon-menu-fine"></i></a>
+                        </div>
+                    </div>
+                    <div class="top_bar_right">
+                        <div class="top_bar_right_wrapper">
+                            <a id="header_cart" href="#"><i class="icon-bag-fine"></i><span>0</span></a>
+                        </div>
+                    </div>
+                    <div class="banner_wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <body>
         {% block body %}{% endblock %}
     </body>
+
+    <footer id="Footer" class="clearfix">
+        <div class="widgets_wrapper" style="padding:70px 0">
+            <div class="container">
+                <div class="column one-third">
+                    <aside class="widget_text widget widget_custom_html">
+                        <div class="textwidget custom-html-widget">
+                            <h4>Find us here</h4>
+                            <hr class="no_line" style="margin:0 auto 20px">
+                            <p>
+                                <a style="margin-right:5px; font-size:18px" href="#"><i class="icon-facebook"></i></a><a style="margin-right:5px; font-size:18px" href="#"><i class="icon-gplus"></i></a><a style="margin-right:5px; font-size:18px" href="#"><i class="icon-twitter"></i></a>
+                                <a style="margin-right:5px;font-size:18px" href="#"><i class="icon-linkedin"></i></a>
+                            </p>
+                            <hr class="no_line" style="margin:0 auto 40px">
+                        </div>
+                    </aside>
+                </div>
+                <div class="column one-third">
+                    <aside class="widget_text widget widget_custom_html">
+                        <div class="textwidget custom-html-widget">
+                            <h4> Contact with us</h4>
+                            <hr class="no_line" style="margin:0 auto 20px">
+                            <p>
+                                Nullam viverra consectetuer
+                                <br> quisque cursus et, porttitor risus.
+                            </p>
+                            <p>
+                                +61 (0) 3 8376 6284
+                                <br> noreply@envato.com
+                            </p>
+                        </div>
+                    </aside>
+                </div>
+                <div class="column one-third">
+                    <aside class="widget_text widget widget_custom_html">
+                        <div class="textwidget custom-html-widget">
+                            <h4> Localization</h4>
+                            <hr class="no_line" style="margin:0 auto 20px"> Envato
+                            <br> Level 13, 2 Elizabeth
+                            <br> Victoria 3000
+                            <br> Australia
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <div class="footer_copy">
+            <div class="container">
+                <div class="column one">
+                    <a id="back_to_top" class="button button_js" href="#"><i class="icon-up-open-big"></i></a>
+                    <div class="copyright">
+                        &copy; 2018 BeAdventure - BeTheme. Muffin group - HTML by <a target="_blank" rel="nofollow" href="http://bit.ly/1M6lijQ">BeantownThemes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-migrate-3.4.0.min.js') }}"></script>
+
+
+    <script src= {{ asset('assets/js/mfn.menu.js') }}>"></script>
+    <script src= {{ asset('assets/js/jquery.plugins.js') }}>"></script>
+    <script src= {{ asset('assets/js/jquery.jplayer.min.js') }}>"></script>
+    <script src= {{ asset('assets/js/animations/animations.js') }}>"></script>
+    <script src= {{ asset('assets/js/translate3d.js') }}>"></script>
+    <script src= {{ asset('assets/js/scripts.js') }}>"></script>
+
+    <script src= {{ asset('assets/js/jquery.themepunch.tools.min.js') }}>"></script>
+    <script src= {{ asset('assets/js/jquery.themepunch.revolution.min.js') }}>"></script>
+
+    <script src= {{ asset('assets/js/extensions/revolution.extension.video.min.js') }}>"></script>
+    <script src= {{ asset('assets/js/extensions/revolution.extension.slideanims.min.js') }}>"></script>
+    <script src= {{ asset('assets/js/extensions/revolution.extension.actions.min.js') }}>"></script>
+    <script src= {{ asset('assets/js/extensions/revolution.extension.layeranimation.min.js') }}>"></script>
+    <script src= {{ asset('assets/js/extensions/revolution.extension.kenburn.min.js') }}>"></script>
+    <script src= {{ asset('assets/js/extensions/revolution.extension.navigation.min.js') }}>"></script>
+    <script src= {{ asset('assets/js/extensions/revolution.extension.migration.min.js') }}>"></script>
+    <script src= {{ asset('assets/js/extensions/revolution.extension.parallax.min.js') }}>"></script>
+    <script>
+        let revapi1, tpj;
+        ( function() {
+            if (!/loaded|interactive|complete/.test(document.readyState))
+                document.addEventListener("DOMContentLoaded", onLoad);
+            else
+                onLoad();
+            function onLoad() {
+                if (tpj === undefined) {
+                    tpj = jQuery;
+                    if ("off" =="on")
+                        tpj.noConflict();
+                }
+                if (tpj("#rev_slider_1_1").revolution == undefined) {
+                    revslider_showDoubleJqueryError("#rev_slider_1_1");
+                } else {
+                    revapi1 = tpj("#rev_slider_1_1").show().revolution({
+                        sliderType :"standard",
+                        sliderLayout :"auto",
+                        dottedOverlay :"none",
+                        delay : 9000,
+                        navigation : {
+                            onHoverStop :"off",
+                        },
+                        visibilityLevels : [1240, 1024, 778, 480],
+                        gridwidth : 1240,
+                        gridheight : 800,
+                        lazyType :"none",
+                        shadow : 0,
+                        spinner :"spinner3",
+                        stopLoop :"off",
+                        stopAfterLoops : -1,
+                        stopAtSlide : -1,
+                        shuffle :"off",
+                        autoHeight :"off",
+                        disableProgressBar :"on",
+                        hideThumbsOnMobile :"off",
+                        hideSliderAtLimit : 0,
+                        hideCaptionAtLimit : 0,
+                        hideAllCaptionAtLilmit : 0,
+                        debugMode : false,
+                        fallbacks : {
+                            simplifyAll :"off",
+                            nextSlideOnWindowFocus :"off",
+                            disableFocusListener : false,
+                        }
+                    });
+                }
+            }
+        }());
+    </script>
 </html>

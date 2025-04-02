@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Spectacles{% endblock %}
+
+{% block body %}
+    <h1>Liste des Spectacles</h1>
+
+    <ul>
+        {% for show in shows %}
+            <li>{{ show.title }} - Durée : {{ show.duration }} minutes</li>
+        {% else %}
+            <li>Aucun spectacle disponible.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

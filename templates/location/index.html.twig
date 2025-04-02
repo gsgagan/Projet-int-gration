@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Lieux{% endblock %}
+
+{% block body %}
+    <h1>Liste des Lieux</h1>
+    <ul>
+        {% for loc in locations %}
+            <li>
+                <a href="{{ path('app_location_show', {'id': loc.id}) }}">
+                    {{ loc.designation }}
+                </a>
+            </li>
+        {% else %}
+            <li>Aucun lieu trouvé.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

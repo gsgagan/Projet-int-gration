@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="custom-form-container">
+            <h2 class="text-center mb-4">Inscription</h2>
+
+            {{ form_start(form) }}
+
+            <div class="form-group">
+                {{ form_label(form.login) }}
+                {{ form_widget(form.login, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.password) }}
+                {{ form_widget(form.password, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.firstname) }}
+                {{ form_widget(form.firstname, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.lastname) }}
+                {{ form_widget(form.lastname, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.langue) }}
+                {{ form_widget(form.langue, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+            </div>
+
+            {{ form_end(form) }}
+
+            <div class="text-center mt-3">
+                <small>Déjà inscrit ? <a href="{{ path('app_home') }}">Se connecter</a></small>
+            </div>
+        </div>
+    </div>
+{% endblock %}

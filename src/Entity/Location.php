@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\LocationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Metadata\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: LocationRepository::class)]
@@ -15,6 +17,11 @@ use Symfony\Component\Serializer\Annotation\Groups;
     normalizationContext: ['groups' => ['location:read']],
     denormalizationContext: ['groups' => ['location:write']],
 )]
+#[ApiFilter(SearchFilter::class, properties: [
+    'slug' => 'exact',
+    'designation' => 'partial',
+    'locality' => 'exact'
+])]
 class Location
 {
     #[Groups(['location:read'])]
@@ -36,7 +43,7 @@ class Location
     private ?string $address = null;
 
     #[Groups(['location:read', 'location:write'])]
-    #[ORM\ManyToOne(inversedBy: "location")]
+    #[ORM\ManyToOne(inversedBy: "locations")]
     #[ORM\JoinColumn(name: "locality_id", referencedColumnName: "id")]
     private ?Localities $locality = null;
 
@@ -131,9 +138,6 @@ class Location
         return $this;
     }
 
-    /**
-     * @return Collection<int, Shows>
-     */
     public function getShows(): Collection
     {
         return $this->shows;
@@ -160,9 +164,6 @@ class Location
         return $this;
     }
 
-    /**
-     * @return Collection<int, Representations>
-     */
     public function getRepresentations(): Collection
     {
         return $this->representations;

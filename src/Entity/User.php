@@ -7,10 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-
-
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
-class Users implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -106,19 +104,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    // 🚀 Implémentation des méthodes requises par UserInterface et PasswordAuthenticatedUserInterface
+    // Implémentation des méthodes requises par UserInterface et PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
-        return ['ROLE_USER']; // Par défaut, chaque utilisateur a le rôle USER
+        return ['ROLE_USER'];
     }
 
     public function eraseCredentials(): void
     {
-        // Cette méthode est requise par l'interface UserInterface mais peut rester vide
     }
 
     public function getUserIdentifier(): string
     {
-        return $this->login; // On utilise le login comme identifiant unique
+        return $this->login;
     }
 }

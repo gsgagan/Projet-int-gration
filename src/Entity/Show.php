@@ -2,16 +2,21 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Metadata\ApiFilter;
-use ApiPlatform\Metadata\ApiResource;
-use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
-use App\Repository\ShowRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\\Metadata\\ApiFilter;
+use ApiPlatform\\Metadata\\ApiResource;
+use ApiPlatform\\Doctrine\\Orm\\Filter\\SearchFilter;
+use App\\Repository\\ShowRepository;
+use Doctrine\\Common\\Collections\\ArrayCollection;
+use Doctrine\\Common\\Collections\\Collection;
+use Doctrine\\ORM\\Mapping as ORM;
+use Symfony\\Component\\Serializer\\Annotation\\Groups;
+use App\\Entity\\Representation;
+use App\\Entity\\Review;
+use App\\Entity\\ArtisteTypeShow;
+use App\\Entity\\Location;
 
-#[ORM\Entity(repositoryClass: ShowRepository::class)]
+#[ORM\\Entity(repositoryClass: ShowRepository::class)]
+#[ORM\\Table(name: "shows")]
 #[ApiResource(
     normalizationContext: ['groups' => ['show:read']],
     denormalizationContext: ['groups' => ['show:write']]
@@ -23,50 +28,50 @@ use Symfony\Component\Serializer\Annotation\Groups;
 ])]
 class Show
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\\Id]
+    #[ORM\\GeneratedValue]
+    #[ORM\\Column]
     #[Groups(['show:read'])]
     private ?int $id = null;
 
-    #[ORM\Column(length: 60)]
+    #[ORM\\Column(length: 60)]
     #[Groups(['show:read', 'show:write'])]
     private ?string $slug = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\\Column(length: 255)]
     #[Groups(['show:read', 'show:write'])]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\\Column(length: 255, nullable: true)]
     #[Groups(['show:read', 'show:write'])]
     private ?string $poster_url = null;
 
-    #[ORM\Column(type: "smallint", options: ["unsigned" => true])]
+    #[ORM\\Column(type: "smallint", options: ["unsigned" => true])]
     #[Groups(['show:read', 'show:write'])]
     private ?int $duration = null;
 
-    #[ORM\Column(type: "integer")]
+    #[ORM\\Column(type: "integer")]
     #[Groups(['show:read', 'show:write'])]
     private ?int $created_in = null;
 
-    #[ORM\ManyToOne(inversedBy: "shows")]
-    #[ORM\JoinColumn(name: "location_id", referencedColumnName: "id")]
+    #[ORM\\ManyToOne(inversedBy: "shows")]
+    #[ORM\\JoinColumn(name: "location_id", referencedColumnName: "id")]
     #[Groups(['show:read', 'show:write'])]
     private ?Location $location = null;
 
-    #[ORM\Column(type: "boolean")]
+    #[ORM\\Column(type: "boolean")]
     #[Groups(['show:read', 'show:write'])]
     private ?bool $bookable = null;
 
-    #[ORM\OneToMany(mappedBy: "show", targetEntity: Representations::class)]
+    #[ORM\\OneToMany(mappedBy: "show", targetEntity: Representation::class)]
     #[Groups(['show:read'])]
     private Collection $representations;
 
-    #[ORM\OneToMany(mappedBy: "show", targetEntity: Review::class)]
+    #[ORM\\OneToMany(mappedBy: "show", targetEntity: Review::class)]
     #[Groups(['show:read'])]
     private Collection $reviews;
 
-    #[ORM\OneToMany(mappedBy: "show", targetEntity: ArtisteTypeShow::class)]
+    #[ORM\\OneToMany(mappedBy: "show", targetEntity: ArtisteTypeShow::class)]
     #[Groups(['show:read'])]
     private Collection $artisteTypeShows;
 

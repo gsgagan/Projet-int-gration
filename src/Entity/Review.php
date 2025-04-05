@@ -5,10 +5,12 @@ namespace App\Entity;
 use App\Repository\ReviewsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\User;
+use App\Entity\Show;
 
 #[ORM\Entity(repositoryClass: ReviewsRepository::class)]
 #[ORM\Table(name: "reviews")]
-class Reviews
+class Review
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,11 +19,11 @@ class Reviews
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(name: "user_id", referencedColumnName: "id", nullable: false)]
-    private ?Users $user = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: "reviews")]
     #[ORM\JoinColumn(name: "show_id", referencedColumnName: "id", nullable: false)]
-    private ?Shows $show = null;
+    private ?Show $show = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $review = null;
@@ -43,23 +45,23 @@ class Reviews
         return $this->id;
     }
 
-    public function getUser(): ?Users
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?Users $user): static
+    public function setUser(?User $user): static
     {
         $this->user = $user;
         return $this;
     }
 
-    public function getShow(): ?Shows
+    public function getShow(): ?Show
     {
         return $this->show;
     }
 
-    public function setShow(?Shows $show): static
+    public function setShow(?Show $show): static
     {
         $this->show = $show;
         return $this;

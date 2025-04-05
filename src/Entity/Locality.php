@@ -6,10 +6,11 @@ use App\Repository\LocalitiesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Location;
 
 #[ORM\Entity(repositoryClass: LocalitiesRepository::class)]
 #[ORM\Table(name: "localities")]
-class Localities
+class Locality
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

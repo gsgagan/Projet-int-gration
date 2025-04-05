@@ -7,10 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Show;
+use App\Entity\Location;
+use App\Entity\RepresentationReservation;
 
 #[ORM\Entity(repositoryClass: RepresentationsRepository::class)]
 #[ORM\Table(name: "representations")]
-class Representations
+class Representation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,7 +22,7 @@ class Representations
 
     #[ORM\ManyToOne(inversedBy: "representations")]
     #[ORM\JoinColumn(name: "show_id", referencedColumnName: "id", nullable: false)]
-    private ?Shows $show = null;
+    private ?Show $show = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $schedule = null;
@@ -41,12 +44,12 @@ class Representations
         return $this->id;
     }
 
-    public function getShow(): ?Shows
+    public function getShow(): ?Show
     {
         return $this->show;
     }
 
-    public function setShow(?Shows $show): static
+    public function setShow(?Show $show): static
     {
         $this->show = $show;
         return $this;

@@ -6,10 +6,11 @@ use App\Repository\TypesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\ArtisteType;
 
 #[ORM\Entity(repositoryClass: TypesRepository::class)]
 #[ORM\Table(name: "types")]
-class Types
+class Type
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

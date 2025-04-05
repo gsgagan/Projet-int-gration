@@ -7,10 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\User;
+use App\Entity\RepresentationReservation;
 
 #[ORM\Entity(repositoryClass: ReservationsRepository::class)]
 #[ORM\Table(name: "reservations")]
-class Reservations
+class Reservation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,7 +21,7 @@ class Reservations
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(name: "user_id", referencedColumnName: "id", nullable: false)]
-    private ?Users $user = null;
+    private ?User $user = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $booking_date = null;
@@ -40,12 +42,12 @@ class Reservations
         return $this->id;
     }
 
-    public function getUser(): ?Users
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?Users $user): static
+    public function setUser(?User $user): static
     {
         $this->user = $user;
         return $this;

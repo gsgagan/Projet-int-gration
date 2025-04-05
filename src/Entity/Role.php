@@ -6,10 +6,11 @@ use App\Repository\RolesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\RoleUser;
 
 #[ORM\Entity(repositoryClass: RolesRepository::class)]
 #[ORM\Table(name: "roles")]
-class Roles
+class Role
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

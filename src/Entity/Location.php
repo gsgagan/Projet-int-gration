@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\LocationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LocationRepository::class)]
@@ -29,7 +31,20 @@ class Location
     private ?string $phone = null;
 
     #[ORM\ManyToOne(inversedBy: 'locations')]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Locality $locality = null;
+
+    #[ORM\OneToMany(mappedBy: 'location', targetEntity: Show::class)]
+    private Collection $shows;
+
+    #[ORM\OneToMany(mappedBy: 'location', targetEntity: Representation::class)]
+    private Collection $representations;
+
+    public function __construct()
+    {
+        $this->shows = new ArrayCollection();
+        $this->representations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -44,7 +59,6 @@ class Location
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
-
         return $this;
     }
 
@@ -56,7 +70,6 @@ class Location
     public function setDesignation(string $designation): static
     {
         $this->designation = $designation;
-
         return $this;
     }
 
@@ -68,7 +81,6 @@ class Location
     public function setAddress(string $address): static
     {
         $this->address = $address;
-
         return $this;
     }
 
@@ -80,7 +92,6 @@ class Location
     public function setWebsite(?string $website): static
     {
         $this->website = $website;
-
         return $this;
     }
 
@@ -92,7 +103,6 @@ class Location
     public function setPhone(?string $phone): static
     {
         $this->phone = $phone;
-
         return $this;
     }
 
@@ -104,6 +114,61 @@ class Location
     public function setLocality(?Locality $locality): static
     {
         $this->locality = $locality;
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Show>
+     */
+    public function getShows(): Collection
+    {
+        return $this->shows;
+    }
+
+    public function addShow(Show $show): static
+    {
+        if (!$this->shows->contains($show)) {
+            $this->shows[] = $show;
+            $show->setLocation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeShow(Show $show): static
+    {
+        if ($this->shows->removeElement($show) && $show->getLocation() === $this) {
+            $show->setLocation(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Representation>
+     */
+    public function getRepresentations(): Collection
+    {
+        return $this->representations;
+    }
+
+    public function addRepresentation(Representation $representation): static
+    {
+        if (!$this->representations->contains($representation)) {
+            $this->representations[] = $representation;
+            $representation->setLocation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRepresentation(Representation $representation): static
+    {
+        if ($this->representations->removeElement($representation)) {
+            if ($representation->getLocation() === $this) {
+                $representation->setLocation(null);
+            }
+        }
 
         return $this;
     }

@@ -1,0 +1,409 @@
+
+ Is the Representation.relatedShow property allowed to be null (nullable)? (yes/no) [yes]:
+ > yes
+
+ Do you want to add a new property to Show so that you can access/update Representation objects from it - e.g. $show->getRepresentations()? (yes/no) [yes]:
+ > yes
+
+ A new property will also be added to the Show class so that you can access the related Representation objects from it.
+
+ New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [re ready, create a migration with php bin/console make:migration
+ 
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:migration
+ created: migrations/Version20250406004254.php
+
+           
+  Success! 
+           
+
+ Review the new migration then run it with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console doctrine:migrations:migrate
+
+ WARNING! You are about to execute a migration in database "reservations" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
+ > 
+
+[notice] Migrating up to DoctrineMigrations\Version20250406004254
+[notice] finished in 43.1ms, used 26M memory, 1 migrations executed, 2 sql queries
+                                                                                                       
+ [OK] Successfully migrated to version: DoctrineMigrations\Version20250406004254                       
+                                                                                                       
+
+
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:migration
+
+
+                                                                                                       
+ [WARNING] No database changes were detected.                                                          
+                                                                                                       
+
+ The database schema and the application mapping information are already in sync.
+ 
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:migration
+
+
+
+                                                                                                       
+ [WARNING] No database changes were detected.                                                          
+                                                                                                       
+
+ The database schema and the application mapping information are already in sync.
+ 
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console doctrine:schema:update
+
+                                                                                                       
+ [OK] Nothing to update - your database is already in sync with the current entity metadata.           
+                                                                                                       
+
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console doctrine:migrations:migrate
+
+
+
+ WARNING! You are about to execute a migration in database "reservations" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
+ > 
+
+                                                                                                       
+ [OK] Already at the latest version ("DoctrineMigrations\Version20250406004254")                       
+                                                                                                       
+
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % clear
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:entity Reservation
+ created: src/Entity/Reservation.php
+ created: src/Repository/ReservationRepository.php
+ 
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > bookingDate
+
+ Field type (enter ? to see all types) [string]:
+ > datetime
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Reservation.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > status
+
+ Field type (enter ? to see all types) [string]:
+ > 
+
+ Field length [255]:
+ > 60
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Reservation.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > user
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > Users
+
+What type of relationship is this?
+ ------------ ------------------------------------------------------------------------- 
+  Type         Description                                                              
+ ------------ ------------------------------------------------------------------------- 
+  ManyToOne    Each Reservation relates to (has) one Users.                             
+               Each Users can relate to (can have) many Reservation objects.            
+                                                                                        
+  OneToMany    Each Reservation can relate to (can have) many Users objects.            
+               Each Users relates to (has) one Reservation.                             
+                                                                                        
+  ManyToMany   Each Reservation can relate to (can have) many Users objects.            
+               Each Users can also relate to (can also have) many Reservation objects.  
+                                                                                        
+  OneToOne     Each Reservation relates to (has) exactly one Users.                     
+               Each Users also relates to (has) exactly one Reservation.                
+ ------------ ------------------------------------------------------------------------- 
+
+ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToOne
+
+ Is the Reservation.user property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to Users so that you can access/update Reservation objects from it - e.g. $users->getReservations()? (yes/no) [yes]:
+ > 
+ > ManyToOne                                        
+                                                                                                       
+                                                    Is the Representation.relatedShow property allowed to be null (nullable)? (yes/no) [yes]:
+                                                    > yes                                              
+                                                                                                       
+                                                    Do you want to add a new property to Show so that you can access/update Representation objects from it - e.g. $show->getRepresentations()? (yes/no) [yes]:
+                                                    > yes                                              
+                                                                                                       
+                                                    A new property will also be added to the Show class so that you can access the related Representation objects from it.                                    
+                                                                                                       
+                                                    New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [re ready, create a migration with php bin/console make:migration          
+                                                                                                       
+                                                   gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:migration
+                                                    created: migrations/Version20250406004254.php      
+                                                                                                       
+                                                                                                       
+                                                     Success!                                          
+                                                                                                       
+                                                                                                       
+                                                    Review the new migration then run it with php bin/console doctrine:migrations:migrate
+                                                    See https:/                                        
+current/bundles/DoctrineMigrationsBundle/index.html
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console doctrine:migrations:migrate
+
+ WARNING! You are about to execute a migration in database "reservations" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
+ > 
+
+[notice] Migrating up to DoctrineMigrations\Version20250406004254
+[notice] finished in 43.1ms, used 26M memory, 1 migrations executed, 2 sql queries
+                                                                                                       
+ [OK] Successfully migrated to version: DoctrineMigrations\Version20250406004254                       
+                                                                                                       
+
+
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:migration
+
+
+                                                                                                       
+ [WARNING] No database changes were detected.                                                          
+                                                                                                       
+
+ The database schema and the application mapping information are already in sync.
+ 
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:migration
+
+
+
+                                                                                                       
+ [WARNING] No database changes were detected.                                                          
+                                                                                                       
+
+ The database schema and the application mapping information are already in sync.
+ 
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console doctrine:schema:update
+
+                                                                                                       
+ [OK] Nothing to update - your database is already in sync with the current entity metadata.           
+                                                                                                       
+
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console doctrine:migrations:migrate
+
+
+
+ WARNING! You are about to execute a migration in database "reservations" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
+ > 
+
+                                                                                                       
+ [OK] Already at the latest version ("DoctrineMigrations\Version20250406004254")                       
+                                                                                                       
+
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % clear
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:entity Reservation
+ created: src/Entity/Reservation.php
+ created: src/Repository/ReservationRepository.php
+ 
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > bookingDate
+
+ Field type (enter ? to see all types) [string]:
+ > datetime
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Reservation.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > status
+
+ Field type (enter ? to see all types) [string]:
+ > 
+
+ Field length [255]:
+ > 60
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Reservation.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > user
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > Users
+
+What type of relationship is this?
+ ------------ ------------------------------------------------------------------------- 
+  Type         Description                                                              
+ ------------ ------------------------------------------------------------------------- 
+  ManyToOne    Each Reservation relates to (has) one Users.                             
+               Each Users can relate to (can have) many Reservation objects.            
+                                                                                        
+  OneToMany    Each Reservation can relate to (can have) many Users objects.            
+               Each Users relates to (has) one Reservation.                             
+                                                                                        
+  ManyToMany   Each Reservation can relate to (can have) many Users objects.            
+               Each Users can also relate to (can also have) many Reservation objects.  
+                                                                                        
+  OneToOne     Each Reservation relates to (has) exactly one Users.                     
+               Each Users also relates to (has) exactly one Reservation.                
+ ------------ ------------------------------------------------------------------------- 
+
+ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToOne
+
+ Is the Reservation.user property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to Users so that you can access/update Reservation objects from it - e.g. $users->getReservations()? (yes/no) [yes]:
+ >  
+ > ManyToOne                                        
+                                                                                                       
+                                                    Is the Representation.relatedShow property allowed to be null (nullable)? (yes/no) [yes]:
+                                                    > yes                                              
+                                                                                                       
+                                                    Do you want to add a new property to Show so that you can access/update Representation objects from it - e.g. $show->getRepresentations()? (yes/no) [yes]:
+                                                    > yes                                              
+                                                                                                       
+                                                    A new property will also be added to the Show class so that you can access the related Representation objects from it.                                    
+                                                                                                       
+                                                    New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [representation New field name inside Show [re ready, create a migration with php bin/console make:migration          
+                                                                                                       
+                                                   gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:migration
+                                                    created: migrations/Version20250406004254.php      
+                                                                                                       
+                                                                                                       
+                                                     Success!                                          
+                                                                                                       
+                                                                                                       
+                                                    Review the new migration then run it with php bin/console doctrine:migrations:migrate
+                                                    See https:/                                        
+current/bundles/DoctrineMigrationsBundle/index.html
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console doctrine:migrations:migrate
+
+ WARNING! You are about to execute a migration in database "reservations" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
+ > 
+
+[notice] Migrating up to DoctrineMigrations\Version20250406004254
+[notice] finished in 43.1ms, used 26M memory, 1 migrations executed, 2 sql queries
+                                                                                                       
+ [OK] Successfully migrated to version: DoctrineMigrations\Version20250406004254                       
+                                                                                                       
+
+
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:migration
+
+
+                                                                                                       
+ [WARNING] No database changes were detected.                                                          
+                                                                                                       
+
+ The database schema and the application mapping information are already in sync.
+ 
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:migration
+
+
+
+                                                                                                       
+ [WARNING] No database changes were detected.                                                          
+                                                                                                       
+
+ The database schema and the application mapping information are already in sync.
+ 
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console doctrine:schema:update
+
+                                                                                                       
+ [OK] Nothing to update - your database is already in sync with the current entity metadata.           
+                                                                                                       
+
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console doctrine:migrations:migrate
+
+
+
+ WARNING! You are about to execute a migration in database "reservations" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
+ > 
+
+                                                                                                       
+ [OK] Already at the latest version ("DoctrineMigrations\Version20250406004254")                       
+                                                                                                       
+
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % clear
+gagssingh@MacBook-Pro-de-Gags Projet-int-gration % php bin/console make:entity Reservation
+ created: src/Entity/Reservation.php
+ created: src/Repository/ReservationRepository.php
+ 
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > bookingDate
+
+ Field type (enter ? to see all types) [string]:
+ > datetime
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Reservation.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > status
+
+ Field type (enter ? to see all types) [string]:
+ > 
+
+ Field length [255]:
+ > 60
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > 
+
+ updated: src/Entity/Reservation.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > user
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > Users
+
+What type of relationship is this?
+ ------------ ------------------------------------------------------------------------- 
+  Type         Description                                                              
+ ------------ ------------------------------------------------------------------------- 
+  ManyToOne    Each Reservation relates to (has) one Users.                             
+               Each Users can relate to (can have) many Reservation objects.            
+                                                                                        
+  OneToMany    Each Reservation can relate to (can have) many Users objects.            
+               Each Users relates to (has) one Reservation.                             
+                                                                                        
+  ManyToMany   Each Reservation can relate to (can have) many Users objects.            
+               Each Users can also relate to (can also have) many Reservation objects.  
+                                                                                        
+  OneToOne     Each Reservation relates to (has) exactly one Users.                     
+               Each Users also relates to (has) exactly one Reservation.                
+ ------------ ------------------------------------------------------------------------- 
+
+ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToOne
+
+ Is the Reservation.user property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to Users so that you can access/update Reservation objects from it - e.g. $users->getReservations()? (yes/no) [yes]:
+ >  

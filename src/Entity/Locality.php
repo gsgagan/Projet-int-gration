@@ -2,14 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\LocalitiesRepository;
+use App\Repository\LocalityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Location;
 
-#[ORM\Entity(repositoryClass: LocalitiesRepository::class)]
-#[ORM\Table(name: "localities")]
+#[ORM\Entity(repositoryClass: LocalityRepository::class)]
 class Locality
 {
     #[ORM\Id]
@@ -17,18 +15,21 @@ class Locality
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 6)]
-    private ?string $postal_code = null;
+    #[ORM\Column(length: 60)]
+    private ?string $postalCode = null;
 
     #[ORM\Column(length: 60)]
     private ?string $locality = null;
 
-    #[ORM\OneToMany(mappedBy: "locality", targetEntity: Location::class)]
-    private Collection $location;
+    /**
+     * @var Collection<int, Location>
+     */
+    #[ORM\OneToMany(targetEntity: Location::class, mappedBy: 'locality')]
+    private Collection $locations;
 
     public function __construct()
     {
-        $this->location = new ArrayCollection();    
+        $this->locations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -38,12 +39,13 @@ class Locality
 
     public function getPostalCode(): ?string
     {
-        return $this->postal_code;
+        return $this->postalCode;
     }
 
-    public function setPostalCode(string $postal_code): static
+    public function setPostalCode(string $postalCode): static
     {
-        $this->postal_code = $postal_code;
+        $this->postalCode = $postalCode;
+
         return $this;
     }
 
@@ -55,21 +57,22 @@ class Locality
     public function setLocality(string $locality): static
     {
         $this->locality = $locality;
+
         return $this;
     }
 
     /**
      * @return Collection<int, Location>
      */
-    public function getLocation(): Collection
+    public function getLocations(): Collection
     {
-        return $this->location;
+        return $this->locations;
     }
 
     public function addLocation(Location $location): static
     {
-        if (!$this->location->contains($location)) {
-            $this->location->add($location);
+        if (!$this->locations->contains($location)) {
+            $this->locations->add($location);
             $location->setLocality($this);
         }
 
@@ -78,7 +81,8 @@ class Locality
 
     public function removeLocation(Location $location): static
     {
-        if ($this->location->removeElement($location)) {
+        if ($this->locations->removeElement($location)) {
+            // set the owning side to null (unless already changed)
             if ($location->getLocality() === $this) {
                 $location->setLocality(null);
             }

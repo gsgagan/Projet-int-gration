@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ShowsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ShowsRepository::class)]
@@ -39,6 +41,31 @@ class Shows
 
     #[ORM\ManyToOne(inversedBy: 'shows')]
     private ?Locations $locationId = null;
+
+    /**
+     * @var Collection<int, Representations>
+     */
+    #[ORM\OneToMany(targetEntity: Representations::class, mappedBy: 'showshowId')]
+    private Collection $schedule;
+
+    /**
+     * @var Collection<int, ArtisteTypeShow>
+     */
+    #[ORM\OneToMany(targetEntity: ArtisteTypeShow::class, mappedBy: 'showId')]
+    private Collection $artisteTypeShows;
+
+    /**
+     * @var Collection<int, Reviews>
+     */
+    #[ORM\OneToMany(targetEntity: Reviews::class, mappedBy: 'showId')]
+    private Collection $reviews;
+
+    public function __construct()
+    {
+        $this->schedule = new ArrayCollection();
+        $this->artisteTypeShows = new ArrayCollection();
+        $this->reviews = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -156,5 +183,95 @@ class Shows
     public function __toString(): string
     {
         return $this->title ?? 'Spectacle sans titre';
+    }
+
+    /**
+     * @return Collection<int, Representations>
+     */
+    public function getSchedule(): Collection
+    {
+        return $this->schedule;
+    }
+
+    public function addSchedule(Representations $schedule): static
+    {
+        if (!$this->schedule->contains($schedule)) {
+            $this->schedule->add($schedule);
+            $schedule->setShowshowId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSchedule(Representations $schedule): static
+    {
+        if ($this->schedule->removeElement($schedule)) {
+            // set the owning side to null (unless already changed)
+            if ($schedule->getShowshowId() === $this) {
+                $schedule->setShowshowId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ArtisteTypeShow>
+     */
+    public function getArtisteTypeShows(): Collection
+    {
+        return $this->artisteTypeShows;
+    }
+
+    public function addArtisteTypeShow(ArtisteTypeShow $artisteTypeShow): static
+    {
+        if (!$this->artisteTypeShows->contains($artisteTypeShow)) {
+            $this->artisteTypeShows->add($artisteTypeShow);
+            $artisteTypeShow->setShowId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtisteTypeShow(ArtisteTypeShow $artisteTypeShow): static
+    {
+        if ($this->artisteTypeShows->removeElement($artisteTypeShow)) {
+            // set the owning side to null (unless already changed)
+            if ($artisteTypeShow->getShowId() === $this) {
+                $artisteTypeShow->setShowId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reviews>
+     */
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function addReview(Reviews $review): static
+    {
+        if (!$this->reviews->contains($review)) {
+            $this->reviews->add($review);
+            $review->setShowId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Reviews $review): static
+    {
+        if ($this->reviews->removeElement($review)) {
+            // set the owning side to null (unless already changed)
+            if ($review->getShowId() === $this) {
+                $review->setShowId(null);
+            }
+        }
+
+        return $this;
     }
 }

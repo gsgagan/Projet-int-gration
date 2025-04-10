@@ -36,9 +36,19 @@ class Locations
     #[ORM\OneToMany(targetEntity: Shows::class, mappedBy: 'locationId')]
     private Collection $shows;
 
+    /**
+     * @var Collection<int, Representations>
+     */
+    #[ORM\OneToMany(targetEntity: Representations::class, mappedBy: 'locationId')]
+    private Collection $representations;
+
+    #[ORM\ManyToOne(inversedBy: 'locations')]
+    private ?Localities $localityId = null;
+
     public function __construct()
     {
         $this->shows = new ArrayCollection();
+        $this->representations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -139,4 +149,46 @@ class Locations
 {
     return $this->name ?? 'Lieu sans nom';
 }
+
+    /**
+     * @return Collection<int, Representations>
+     */
+    public function getRepresentations(): Collection
+    {
+        return $this->representations;
+    }
+
+    public function addRepresentation(Representations $representation): static
+    {
+        if (!$this->representations->contains($representation)) {
+            $this->representations->add($representation);
+            $representation->setLocationId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRepresentation(Representations $representation): static
+    {
+        if ($this->representations->removeElement($representation)) {
+            // set the owning side to null (unless already changed)
+            if ($representation->getLocationId() === $this) {
+                $representation->setLocationId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getLocalityId(): ?Localities
+    {
+        return $this->localityId;
+    }
+
+    public function setLocalityId(?Localities $localityId): static
+    {
+        $this->localityId = $localityId;
+
+        return $this;
+    }
 }

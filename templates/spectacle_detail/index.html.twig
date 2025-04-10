@@ -3,11 +3,158 @@
 {% block title %}Hello SpectacleDetailController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-{{dump(spectacle)}}
+
+<div id="Wrapper">
+        <div id="Header_wrapper">
+            <div id="Subheader" style="padding:100px 0">
+                <div class="container">
+                    <div class="column one">
+                        <h2 class="title">Shop</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Content">
+            <div class="content_wrapper clearfix">
+                <div class="sections_group">
+                    <div class="section">
+                        <div class="section_wrapper clearfix">
+                            <div class="items_group clearfix">
+                                <div class="column one woocommerce-content">
+                                    <div class="share-simple wide tabs product type-product has-post-thumbnail first">
+                                        <div class="product_wrapper clearfix">
+                                            <div class="column one-second product_image_wrapper">
+                                                <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 0; transition: opacity .25s ease-in-out">
+                                                    <figure class="woocommerce-product-gallery__wrapper">
+                                                        <div data-thumb="images/adventure-book-cover-100x100.jpg" class="woocommerce-product-gallery__image">
+                                                            <a href="images/adventure-book-cover.jpg">
+                                                                	<img src="{{ asset('uploads/'~ spectacle.posterUrl) }}" class="wp-post-image" data-src="{{ asset('uploads/'~ spectacle.posterUrl) }}" data-large_image="{{ asset('uploads/'~ spectacle.posterUrl) }}">
+                                                                </a>
+                                                        </div>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                            <div class="summary entry-summary column one-second">
+                                                <h1 class="product_title entry-title">{{spectacle.title}}</h1>
+                                                <p class="price">
+                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>10.99</span>
+                                                </p>
+                                                <div class="woocommerce-product-details__short-description">
+                                                    <p>
+                                                        {{spectacle.description}}
+                                                    </p>
+                                                    <span class="spectacle-duration">
+                                                        <i class="fa-solid fa-clock"></i>
+                                                        <span class="duration-text">{{spectacle.duration}} minutes</span>
+                                                    </span>
+
+                                                    <span class="spectacle-duration">
+                                                        <i class="fa-solid fa-location-dot"></i>
+                                                        <span class="duration-text">{{spectacle.locationId.address}}</span>
+                                                    </span>
+                                                </div>
+                                                <form class="cart" action="#" method="post" enctype="multipart/form-data">
+                                                    <div class="quantity">
+                                                        <label class="screen-reader-text" for="quantity_5af9b4eee8b1c">Quantity</label>
+                                                        <input type="number" id="quantity_5af9b4eee8b1c" class="input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" aria-labelledby="">
+                                                    </div>
+                                                    <button type="submit" name="add-to-cart" value="55" class="single_add_to_cart_button button alt">
+															Add to cart
+														</button>
+                                                </form>
+                                                <div class="product_meta">
+                                                    <span class="posted_in">Category: <a href="#" rel="tag">Uncategorized</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="Footer" class="clearfix">
+            <div class="widgets_wrapper" style="padding:70px 0">
+                <div class="container">
+                    <div class="column one-third">
+                        <aside class="widget_text widget widget_custom_html">
+                            <div class="textwidget custom-html-widget">
+                                <h4>Find us here</h4>
+                                <hr class="no_line" style="margin:0 auto 20px">
+                                <p>
+                                    <a style="margin-right:5px; font-size:18px" href="#"><i class="icon-facebook"></i></a><a style="margin-right:5px; font-size:18px" href="#"><i class="icon-gplus"></i></a><a style="margin-right:5px; font-size:18px" href="#"><i class="icon-twitter"></i></a>
+                                    <a style="margin-right:5px;font-size:18px" href="#"><i class="icon-linkedin"></i></a>
+                                </p>
+                                <hr class="no_line" style="margin:0 auto 40px">
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="column one-third">
+                        <aside class="widget_text widget widget_custom_html">
+                            <div class="textwidget custom-html-widget">
+                                <h4> Contact with us</h4>
+                                <hr class="no_line" style="margin:0 auto 20px">
+                                <p>
+                                    Nullam viverra consectetuer
+                                    <br> quisque cursus et, porttitor risus.
+                                </p>
+                                <p>
+                                    +61 (0) 3 8376 6284
+                                    <br> noreply@envato.com
+                                </p>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="column one-third">
+                        <aside class="widget_text widget widget_custom_html">
+                            <div class="textwidget custom-html-widget">
+                                <h4> Localization</h4>
+                                <hr class="no_line" style="margin:0 auto 20px"> Envato
+                                <br> Level 13, 2 Elizabeth
+                                <br> Victoria 3000
+                                <br> Australia
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_copy">
+                <div class="container">
+                    <div class="column one">
+                        <a id="back_to_top" class="button button_js" href="#"><i class="icon-up-open-big"></i></a>
+                        <div class="copyright">
+                            © 2018 BeAdventure - BeTheme. Muffin group - HTML by <a target="_blank" rel="nofollow" href="http://bit.ly/1M6lijQ">BeantownThemes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <style>
+    .spectacle-duration {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 500;
+    color: #555;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.spectacle-duration i {
+    color: #ff6b6b;
+    margin-right: 0.5rem;
+    font-size: 1.1em;
+}
+
+.duration-text {
+    letter-spacing: 0.5px;
+}
+    </style>
 
 {% endblock %}

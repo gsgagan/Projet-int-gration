@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class ShowsCrudController extends AbstractCrudController
 {
@@ -25,6 +26,10 @@ class ShowsCrudController extends AbstractCrudController
         return [
              SlugField::new('slug')->setTargetFieldName('title'),
              TextField::new('title')->setLabel('Titre')->setHelp('Titre du spectacle'),
+             TextField::new('shortDesc')->setLabel('Description courte'),
+             TextareaField::new('description')
+                ->setLabel('Description')
+                ->setNumOfRows(4),
              ImageField::new('poster_url')->setLabel('Photo')->setHelp('Photo du spectacle')->setUploadDir('/public/uploads')->setBasePath('/uploads')->setUploadedFileNamePattern('[year]-[month]-[day]-[contenthash].[extension]'),
              IntegerField::new('duration')->setLabel('Durée')->setHelp('En miutes'),
              IntegerField::new('created_in')->setLabel('Date de création')->setHelp("Uniquement l'année"),

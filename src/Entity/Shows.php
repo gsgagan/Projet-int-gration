@@ -31,6 +31,15 @@ class Shows
     #[ORM\Column]
     private ?bool $bookable = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $shortDesc = null;
+
+    #[ORM\Column(type: "text")]
+    private ?string $description = null;
+
+    #[ORM\ManyToOne(inversedBy: 'shows')]
+    private ?Locations $locationId = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,5 +115,46 @@ class Shows
         $this->bookable = $bookable;
 
         return $this;
+    }
+
+    public function getShortDesc(): ?string
+    {
+        return $this->shortDesc;
+    }
+
+    public function setShortDesc(string $shortDesc): static
+    {
+        $this->shortDesc = $shortDesc;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getLocationId(): ?Locations
+    {
+        return $this->locationId;
+    }
+
+    public function setLocationId(?Locations $locationId): static
+    {
+        $this->locationId = $locationId;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->title ?? 'Spectacle sans titre';
     }
 }

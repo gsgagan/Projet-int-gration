@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use App\Entity\Users;
 use App\Entity\Shows;
+use App\Entity\Locations;
 
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
@@ -37,5 +38,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', Users::class);
         yield MenuItem::linkToCrud('Shows', 'fas fa-user', Shows::class);
+        yield MenuItem::linkToCrud('Locations', 'fas fa-user', Locations::class);
     }
 }

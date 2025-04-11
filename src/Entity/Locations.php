@@ -42,7 +42,9 @@ class Locations
     #[ORM\OneToMany(targetEntity: Representations::class, mappedBy: 'locationId')]
     private Collection $representations;
 
+    // Relation ManyToOne avec Localities (inverse de la OneToMany dans Localities)
     #[ORM\ManyToOne(inversedBy: 'locations')]
+    #[ORM\JoinColumn(name: 'locality_id', referencedColumnName: 'id')]
     private ?Localities $localityId = null;
 
     public function __construct()
@@ -145,10 +147,11 @@ class Locations
 
         return $this;
     }
+
     public function __toString(): string
-{
-    return $this->name ?? 'Lieu sans nom';
-}
+    {
+        return $this->designation ?? 'Lieu sans nom';
+    }
 
     /**
      * @return Collection<int, Representations>
@@ -180,6 +183,7 @@ class Locations
         return $this;
     }
 
+    // Méthodes pour la relation avec Localities
     public function getLocalityId(): ?Localities
     {
         return $this->localityId;
@@ -190,5 +194,11 @@ class Locations
         $this->localityId = $localityId;
 
         return $this;
+    }
+    
+    // Méthode pratique pour accéder à Localities (si vous voulez utiliser getLocalities())
+    public function getLocalities(): ?Localities
+    {
+        return $this->localityId;
     }
 }

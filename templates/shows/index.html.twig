@@ -41,6 +41,22 @@
                                                 <p>
                                                     {{spectacle.shortDesc}}
                                                 </p>
+
+                                                {# Récupérer le prix #}
+                                                {% set prix = null %}
+                                                {% for representation in spectacle.schedule %}
+                                                    {% for reservationRepresentation in representation.representationReservations %}
+                                                        {% if prix is null and reservationRepresentation.priceId %}
+                                                            {% set prix = reservationRepresentation.priceId.price %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                                
+                                                {% if prix is not null %}
+                                                    <p>Prix : {{ prix }} €</p>
+                                                {% else %}
+                                                    <p>Prix non disponible</p>
+                                                {% endif %}
                                                
                                                 <hr class="no_line" style="margin:0 auto 20px">
                                                 <a href="#" class="icon_bar  icon_bar_facebook icon_bar_small"><span class="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a>

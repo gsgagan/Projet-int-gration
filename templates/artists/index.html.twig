@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArtistsController!{% endblock %}
+
+{% block body %}
+<div class="artists-container">
+<h1>Liste des artistes</h1>
+    {% for artist in artists %}
+        <div class="artist-card">
+            <div class="artist-avatar">
+                <i class="fa-solid fa-user-circle"></i>
+            </div>
+            <div class="artist-info">
+                <a href="{{ path('app_artist_details', {'id': artist.id}) }}"> <h4 class="artist-name">{{ artist.firstname }} {{ artist.lastname }}</h4> </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<style>
+    .artists-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin: 2rem auto;
+        max-width: 600px;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .artist-card {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        border-bottom: 1px solid #f0f0f0;
+        text-align: center;
+    }
+    
+    .artist-card:last-child {
+        border-bottom: none;
+    }
+    
+    .artist-avatar {
+        font-size: 1.5rem;
+        color: #6c757d;
+        margin-right: 1rem;
+    }
+    
+    .artist-name {
+        margin: 0;
+        font-weight: 500;
+        color: #333;
+    }
+</style>
+{% endblock %}

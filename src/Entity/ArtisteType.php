@@ -90,4 +90,9 @@ class ArtisteType
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->artistId.' - '. $this->typeId ?? "Pas d'artiste type";
+    }
 }

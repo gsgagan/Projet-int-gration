@@ -37,9 +37,8 @@
                                             </div>
                                             <div class="summary entry-summary column one-second">
                                                 <h1 class="product_title entry-title">{{spectacle.title}}</h1>
-                                                <p class="price">
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>10.99</span>
-                                                </p>
+                                             
+                                        
                                                 <div class="woocommerce-product-details__short-description">
                                                     <p>
                                                         {{spectacle.description}}
@@ -49,11 +48,106 @@
                                                         <span class="duration-text">{{spectacle.duration}} minutes</span>
                                                     </span>
 
-                                                    <span class="spectacle-duration">
-                                                        <i class="fa-solid fa-location-dot"></i>
-                                                        <span class="duration-text">{{spectacle.locationId.address}}</span>
+                                                    {% if spectacle.locationId and spectacle.locationId.localityId %}
+                                                        <span class="spectacle-duration">
+                                                            <i class="fa-solid fa-location-dot"></i>
+                                                            
+                                                                {{ spectacle.locationId.designation }}
+
+                                                                <!-- A garder pour plus tard si besoin est-->
+                                                               <!-- {{ spectacle.locationId.localityId.postalCode }} 
+                                                                {{ spectacle.locationId.localityId.locality }}-->
+                                                        
+                                                        </span>
+                                                    {% endif %}
+
+                                                    <span class="spectacle-price">
+                                                        <i class="fa-solid fa-tag"></i>
+                                                        <span class="price-text">
+                                                            {% set prix = null %}
+                                                            {% for representation in spectacle.schedule %}
+                                                                {% for reservationRepresentation in representation.representationReservations %}
+                                                                    {% if prix is null and reservationRepresentation.priceId %}
+                                                                        {% set prix = reservationRepresentation.priceId.price %}
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            {% endfor %}
+                                                            
+                                                            {% if prix is not null %}
+                                                                {{ prix }} €
+                                                            {% else %}
+                                                                Prix non disponible
+                                                            {% endif %}
+                                                        </span>
                                                     </span>
+                                                    
                                                 </div>
+
+                                                <h3 class="text-decoration-underline">Représentations</h3>
+                                                {% if spectacle.schedule|length > 0 %}
+                                                    <ul>
+                                                        {% for representation in spectacle.schedule %}
+                                                            <li>
+                                                                Date: {{ representation.schedule|date('d/m/Y H:i') }}
+                                                                {% if representation.locationId %}
+                                                                    - Lieu: {{ representation.locationId.designation }}
+                                                                {% endif %}
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% else %}
+                                                    <p>Aucune représentation programmée pour ce spectacle.</p>
+                                                {% endif %}
+                                                <hr>
+                                                {# Organiser les artistes par type #}
+                                                {% set auteurs = [] %}
+                                                {% set metteurs_en_scene = [] %}
+                                                {% set distribution = [] %}
+
+                                                {% for artisteTypeShow in spectacle.artisteTypeShows %}
+                                                    {% set artisteType = artisteTypeShow.artisteTypeId %}
+                                                    {% set artiste = artisteType.artistId %}
+                                                    {% set type = artisteType.typeId %}
+                                                    
+                                                    {% if type.type == 'Auteur' %}
+                                                        {% set auteurs = auteurs|merge([artiste]) %}
+                                                    {% elseif type.type == 'Metteur en scène' %}
+                                                        {% set metteurs_en_scene = metteurs_en_scene|merge([artiste]) %}
+                                                    {% else %}
+                                                        {% set distribution = distribution|merge([artiste]) %}
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                                {# Affichage des artistes par catégorie #}
+                                                {% if auteurs|length > 0 %}
+                                                    <h3>Auteur{% if auteurs|length > 1 %}s{% endif %}</h3>
+                                                    <p>
+                                                        {% for auteur in auteurs %}
+                                                            {{ auteur.firstname }} {{ auteur.lastname }}{% if not loop.last %}, {% endif %}
+                                                        {% endfor %}
+                                                    </p>
+                                                {% endif %}
+
+                                                {% if metteurs_en_scene|length > 0 %}
+                                                    <h3>Metteur{% if metteurs_en_scene|length > 1 %}s{% endif %} en scène</h3>
+                                                    <p>
+                                                        {% for metteur in metteurs_en_scene %}
+                                                            {{ metteur.firstname }} {{ metteur.lastname }}{% if not loop.last %}, {% endif %}
+                                                        {% endfor %}
+                                                    </p>
+                                                {% endif %}
+
+                                                {% if distribution|length > 0 %}
+                                                    <h3>Distribution</h3>
+                                                    <p>
+                                                        {% for artiste in distribution %}
+                                                            {{ artiste.firstname }} {{ artiste.lastname }}{% if not loop.last %}, {% endif %}
+                                                        {% endfor %}
+                                                    </p>
+                                                {% endif %}
+                                                <hr>
+                                                {% if spectacle.bookable %}
+                                                <h3> Réservations </h3>
                                                 <form class="cart" action="#" method="post" enctype="multipart/form-data">
                                                     <div class="quantity">
                                                         <label class="screen-reader-text" for="quantity_5af9b4eee8b1c">Quantity</label>
@@ -63,6 +157,15 @@
 															Add to cart
 														</button>
                                                 </form>
+                                                {% else %}
+                                                <div class="product_meta">
+                                                    <span class="posted_in">Reservation indisponible pour le moment</span>
+                                                </div>
+                                                {% endif %}
+
+                                                
+
+
                                                 <div class="product_meta">
                                                     <span class="posted_in">Category: <a href="#" rel="tag">Uncategorized</a></span>
                                                 </div>
@@ -135,7 +238,7 @@
     </div>
 
     <style>
-    .spectacle-duration {
+    .spectacle-duration, .spectacle-price {
     display: inline-flex;
     align-items: center;
     background-color: #f5f5f5;
@@ -146,7 +249,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.spectacle-duration i {
+.spectacle-duration i, .spectacle-price i{
     color: #ff6b6b;
     margin-right: 0.5rem;
     font-size: 1.1em;

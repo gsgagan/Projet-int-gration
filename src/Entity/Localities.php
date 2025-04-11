@@ -90,4 +90,10 @@ class Localities
 
         return $this;
     }
+
+    public function __toString(): string
+{
+    // Retourner le champ qui identifie le mieux votre localité (par exemple, le nom)
+    return $this->getLocality() ?? 'Localité sans nom';
+}
 }

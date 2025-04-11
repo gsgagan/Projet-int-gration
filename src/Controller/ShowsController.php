@@ -11,10 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 final class ShowsController extends AbstractController
 {
     #[Route('/shows', name: 'app_shows')]
-    public function index(ShowsRepository $showsRepositery, Request $request): Response
+    public function index(ShowsRepository $showsRepository, Request $request): Response
     {
 
-        $shows = $showsRepositery->findAll();
+        //$shows = $showsRepositery->findAll();
+        $shows = $showsRepository->findShowsWithPrices();
 
         return $this->render('shows/index.html.twig', [
             'spectacles' => $shows,

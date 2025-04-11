@@ -12,7 +12,8 @@ final class SpectacleDetailController extends AbstractController
     #[Route('/spectacle/{slug}', name: 'app_spectacle_detail')]
     public function index($slug, ShowsRepository $showsRepository): Response
     {
-        $spectacle = $showsRepository->findOneBySlug($slug);
+        $spectacle = $showsRepository->findShowWithDetailsBySlug($slug);
+
 
         return $this->render('spectacle_detail/index.html.twig', [
             'spectacle' => $spectacle,

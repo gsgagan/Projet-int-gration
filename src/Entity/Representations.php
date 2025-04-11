@@ -106,4 +106,17 @@ class Representations
 
         return $this;
     }
+
+    public function __toString(): string
+{
+    // Retourner une représentation textuelle unique de cette représentation
+    // Par exemple la date et le spectacle associé
+    if ($this->getSchedule() && $this->getShowshowId()) {
+        return $this->getShowshowId()->getTitle() . ' - ' . 
+               $this->getSchedule()->format('d/m/Y H:i');
+    }
+    
+    // Fallback si les informations ne sont pas disponibles
+    return 'Représentation #' . ($this->getId() ?? 'nouvelle');
+}
 }

@@ -11,6 +11,14 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use App\Entity\Users;
 use App\Entity\Shows;
 use App\Entity\Locations;
+use App\Entity\Prices;
+use App\Entity\Localities;
+use App\Entity\Representations;
+use App\Entity\RepresentationReservation;
+use App\Entity\Artists;
+use App\Entity\Types;
+use App\Entity\ArtisteType;
+use App\Entity\ArtisteTypeShow;
 
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
@@ -39,5 +47,13 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', Users::class);
         yield MenuItem::linkToCrud('Shows', 'fas fa-user', Shows::class);
         yield MenuItem::linkToCrud('Locations', 'fas fa-user', Locations::class);
+        yield MenuItem::linkToCrud('Prix', 'fas fa-user', Prices::class);
+        yield MenuItem::linkToCrud('Localité', 'fas fa-user', Localities::class);
+        yield MenuItem::linkToCrud('Représentations', 'fas fa-user', Representations::class);
+        yield MenuItem::linkToCrud('Représentations - Réservatiion', 'fas fa-user', RepresentationReservation::class);
+        yield MenuItem::linkToCrud('Artists', 'fas fa-user', Artists::class);
+        yield MenuItem::linkToCrud('Types', 'fas fa-user', Types::class);
+        yield MenuItem::linkToCrud('Artiste_Type', 'fas fa-user', ArtisteType::class);
+        yield MenuItem::linkToCrud('Artiste_Type_Show', 'fas fa-user', ArtisteTypeShow::class);
     }
 }

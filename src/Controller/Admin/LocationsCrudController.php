@@ -28,6 +28,15 @@ class LocationsCrudController extends AbstractCrudController
             TextField::new('phone')->setLabel('Numéro de téléphone'),
             AssociationField::new('shows', 'Spectacles')
                 ->setFormTypeOption('by_reference', false),
+            AssociationField::new('localityId', 'Localité')
+            ->setFormTypeOptions([
+                'class' => 'App\Entity\Localities',
+                'choice_label' => 'locality',
+                'query_builder' => function ($er) {
+                    return $er->createQueryBuilder('l')
+                        ->orderBy('l.locality', 'ASC');
+                },
+            ]),
         ];
     }
     

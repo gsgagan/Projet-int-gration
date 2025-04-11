@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class ShowsCrudController extends AbstractCrudController
 {
@@ -30,9 +31,14 @@ class ShowsCrudController extends AbstractCrudController
              TextareaField::new('description')
                 ->setLabel('Description')
                 ->setNumOfRows(4),
-             ImageField::new('poster_url')->setLabel('Photo')->setHelp('Photo du spectacle')->setUploadDir('/public/uploads')->setBasePath('/uploads')->setUploadedFileNamePattern('[year]-[month]-[day]-[contenthash].[extension]'),
+             ImageField::new('posterUrl')->setLabel('Photo')->setHelp('Photo du spectacle')->setUploadDir('/public/uploads')->setBasePath('/uploads')->setUploadedFileNamePattern('[year]-[month]-[day]-[contenthash].[extension]'),
              IntegerField::new('duration')->setLabel('Durée')->setHelp('En miutes'),
-             IntegerField::new('created_in')->setLabel('Date de création')->setHelp("Uniquement l'année"),
+             IntegerField::new('createdIn')->setLabel('Date de création')->setHelp("Uniquement l'année"),
+             AssociationField::new('locationId', 'Lieux')
+            ->setFormTypeOptions([
+                'class' => 'App\Entity\Locations',
+                'choice_label' => 'designation',
+            ]),
              BooleanField::new('bookable')->setLabel('Réservé')
    
         ];

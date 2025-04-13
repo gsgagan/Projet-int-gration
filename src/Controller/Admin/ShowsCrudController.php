@@ -31,7 +31,7 @@ class ShowsCrudController extends AbstractCrudController
              TextareaField::new('description')
                 ->setLabel('Description')
                 ->setNumOfRows(4),
-             ImageField::new('posterUrl')->setLabel('Photo')->setHelp('Photo du spectacle')->setUploadDir('/public/uploads')->setBasePath('/uploads')->setUploadedFileNamePattern('[year]-[month]-[day]-[contenthash].[extension]'),
+             ImageField::new('posterUrl')->setLabel('Photo')->setHelp('Photo du spectacle')->setUploadDir('/public/uploads')->setBasePath('/uploads')->setUploadedFileNamePattern('[year]-[month]-[day]-[contenthash].[extension]')->setRequired(false),
              IntegerField::new('duration')->setLabel('Durée')->setHelp('En miutes'),
              IntegerField::new('createdIn')->setLabel('Date de création')->setHelp("Uniquement l'année"),
              AssociationField::new('locationId', 'Lieux')
@@ -39,7 +39,8 @@ class ShowsCrudController extends AbstractCrudController
                 'class' => 'App\Entity\Locations',
                 'choice_label' => 'designation',
             ]),
-             BooleanField::new('bookable')->setLabel('Réservé')
+             BooleanField::new('bookable')->setLabel('Réservé'),
+             BooleanField::new('promoted')->setLabel('Mise en une')
    
         ];
     }

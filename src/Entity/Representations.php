@@ -119,4 +119,27 @@ class Representations
     // Fallback si les informations ne sont pas disponibles
     return 'Représentation #' . ($this->getId() ?? 'nouvelle');
 }
+
+    /**
+     * Retourne le prix de la représentation.
+     *
+     * Cette méthode parcourt la collection de RepresentationReservation et
+     * utilise la première instance associée pour récupérer le prix via l'entité Prices.
+     * La méthode getPrice() de Prices retourne une chaîne de caractères
+     * que nous convertissons en float pour le calcul du montant en centimes.
+     *
+     * @return float Le prix en euros, ou 0.0 si aucune réservation n'est trouvée.
+     */
+    public function getPrice(): float
+    {
+        if (!$this->representationReservations->isEmpty()) {
+            $firstReservation = $this->representationReservations->first();
+            if ($firstReservation && $firstReservation->getPriceId() !== null) {
+                // La méthode getPrice() de l'entité Prices retourne une chaîne
+                // On la convertit en float avant de la retourner.
+                return (float) $firstReservation->getPriceId()->getPrice();
+            }
+        }
+        return 0.0;
+    }
 }

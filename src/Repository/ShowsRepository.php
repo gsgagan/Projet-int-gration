@@ -18,26 +18,18 @@ class ShowsRepository extends ServiceEntityRepository
 
     public function findShowsWithPrices(): array
     {
-        return $this->createQueryBuilder('s')
-            ->leftJoin('s.schedule', 'r') // Joindre les représentations
-            ->leftJoin('r.representationReservations', 'rr') // Joindre les réservations de représentations
-            ->leftJoin('rr.priceId', 'p') // Joindre les prix
-            ->addSelect('r', 'rr', 'p') // Sélectionner ces entités pour éviter les requêtes N+1
+        $qb = $this->createQueryBuilder('s');
+
+        return $qb
+            ->select('s')
+            ->addSelect('r')
+            ->addSelect('rr')
+            ->addSelect('p')
+            ->leftJoin('s.schedule', 'r')
+            ->leftJoin('r.representationReservations', 'rr')
+            ->leftJoin('rr.priceId', 'p')
             ->getQuery()
             ->getResult();
-    }
-
-    public function findShowWithPricesBySlug(string $slug): ?object
-    {
-        return $this->createQueryBuilder('s')
-            ->leftJoin('s.schedule', 'r') // Joindre les représentations
-            ->leftJoin('r.representationReservations', 'rr') // Joindre les réservations de représentations
-            ->leftJoin('rr.priceId', 'p') // Joindre les prix
-            ->addSelect('r', 'rr', 'p') // Sélectionner ces entités pour éviter les requêtes N+1
-            ->where('s.slug = :slug')
-            ->setParameter('slug', $slug)
-            ->getQuery()
-            ->getOneOrNullResult(); // Retourne un seul résultat ou null si non trouvé
     }
     
 

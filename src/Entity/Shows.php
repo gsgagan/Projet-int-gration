@@ -60,6 +60,9 @@ class Shows
     #[ORM\OneToMany(targetEntity: Reviews::class, mappedBy: 'showId')]
     private Collection $reviews;
 
+    #[ORM\Column]
+    private ?bool $promoted = null;
+
     public function __construct()
     {
         $this->schedule = new ArrayCollection();
@@ -271,6 +274,18 @@ class Shows
                 $review->setShowId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isPromoted(): ?bool
+    {
+        return $this->promoted;
+    }
+
+    public function setPromoted(bool $promoted): static
+    {
+        $this->promoted = $promoted;
 
         return $this;
     }

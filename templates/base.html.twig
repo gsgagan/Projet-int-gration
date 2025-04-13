@@ -1,49 +1,211 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <!--{% block stylesheets %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    <!--{% block stylesheets %}
         {% endblock %}-->
 
-        <!--{% block javascripts %}
+    <!--{% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}-->
-        <!-- Basic Page Needs -->
-        <meta charset="utf-8">
-        <title>Be</title>
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>Be</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <!-- Mobile Specific Metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <!-- Favicons -->
-        <link rel="shortcut icon" href="content/adventure/images/favicon.ico">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="content/adventure/images/favicon.ico">
 
-        <!-- FONTS -->
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,700'>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Patua+One:100,300,400,400italic,700'>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900'>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Serif:100,300,400,400italic,500,600,700,700italic'>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Poppins:100,300,400,400italic,500,600,700,700italic'>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Cormorant+Garamond:100,300,400,400italic,500,600,700,700italic'>
+    <!-- FONTS -->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,700'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Patua+One:100,300,400,400italic,700'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,900'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Serif:100,300,400,400italic,500,600,700,700italic'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Poppins:100,300,400,400italic,500,600,700,700italic'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Cormorant+Garamond:100,300,400,400italic,500,600,700,700italic'>
 
-        <!-- CSS -->
-        <link rel='stylesheet' href='{{ asset('assets/css/global.css') }}'>
-        <link rel='stylesheet' href={{ asset('assets/css/structure.css') }}>
-        <link rel='stylesheet' href={{ asset('assets/css/adventure.css') }}>
-        <link rel='stylesheet' href={{ asset('assets/css/custom.css') }}>
+    <!-- CSS -->
+    <link rel='stylesheet' href='{{ asset('assets/css/global.css') }}'>
+    <link rel='stylesheet' href={{ asset('assets/css/structure.css') }}>
+    <link rel='stylesheet' href={{ asset('assets/css/adventure.css') }}>
+    <link rel='stylesheet' href={{ asset('assets/css/custom.css') }}>
 
-        <!-- Revolution Slider -->
-        <link rel="stylesheet" href={{ asset('assets/css/plugins/rs-plugin/css/settings.css') }}>
-    </head>
-    
+    <!-- Revolution Slider -->
+    <link rel="stylesheet" href={{ asset('assets/css/plugins/rs-plugin/css/settings.css') }}>
 
-    <body class="style-simple button-flat layout-boxed if-zoom if-border-hide no-content-padding no-shadows header-creative header-open minimalist-header-no ab-hide subheader-title-left menu-link-color menuo-no-borders mobile-tb-center mobile-side-slide mobile-mini-mr-ll tablet-sticky mobile-header-mini mobile-sticky mobile-tr-header tr-header tr-menu">
-    <div id="Header_creative">
-        <div id="Wrapper">
+    <style>
+        .user-bar {
+            background-color: #c57f3b;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            text-align: right;
+            position: relative;
+            z-index: 30;
+        }
+
+        .user-bar-container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .user-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+        .user-bar a i {
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
+        .user-bar .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            background-color: #98c1d9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .user-name {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        .cart-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-left: 15px;
+            transition: background-color 0.2s;
+        }
+
+        .cart-link:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            color: white;
+        }
+
+        .cart-count {
+            background-color: #ee6c4d;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        .login-btn, .register-btn, .logout-btn {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .login-btn {
+            background-color: #ee6c4d;
+        }
+
+        .register-btn {
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .logout-btn {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .login-btn:hover, .register-btn:hover, .logout-btn:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            color: white;
+        }
+        .logo-background {
+            background-image: url('{{ asset('assets/images/logo-spectacle.png') }}');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 99px; /* Ajustez cette hauteur selon vos besoins */
+        }
+
+        /* Pour assurer que le conteneur prend toute la largeur disponible */
+        #logo {
+            display: block;
+            width: 100%;
+        }
+
+        /* Pour les versions responsive */
+        @media only screen and (max-width: 767px) {
+            .logo-background {
+                height: 80px; /* Hauteur réduite pour mobile */
+            }
+        }
+    </style>
+</head>
+
+
+<body class="style-simple button-flat layout-boxed if-zoom if-border-hide no-content-padding no-shadows header-creative header-open minimalist-header-no ab-hide subheader-title-left menu-link-color menuo-no-borders mobile-tb-center mobile-side-slide mobile-mini-mr-ll tablet-sticky mobile-header-mini mobile-sticky mobile-tr-header tr-header tr-menu">
+<!-- Nouvelle barre utilisateur -->
+<div class="user-bar">
+    <div class="user-bar-container">
+        {% if app.user %}
+            <div class="user-info">
+                <div class="user-avatar">
+                    {{ app.user.firstname|first }}
+                </div>
+                <span class="user-name">Bonjour, {{ app.user.firstname }}</span>
+                <a href="{{ path('app_logout') }}" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Déconnexion
+                </a>
+            </div>
+            <a href="{{ path('cart_index') }}" class="cart-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Mon panier</span>
+                {% set cartCount = app.session.get('cart')|default({})|length %}
+                <span class="cart-count">{{ cartCount }}</span>
+            </a>
+        {% else %}
+            <a href="{{ path('app_login') }}" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i> Connexion
+            </a>
+            <a href="{{ path('app_register') }}" class="register-btn">
+                <i class="fas fa-user-plus"></i> Inscription
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+<div id="Header_creative">
+    <div id="Wrapper">
         <a href="#" class="creative-menu-toggle"><i class="icon-menu-fine"></i></a>
         <div class="creative-social">
 
@@ -53,8 +215,10 @@
             <div id="Top_bar">
                 <div class="one clearfix">
                     <div class="top_bar_left">
-                        <div class="logo">
-                            <a id="logo" href="index-adventure.html" title="BeAdventure - BeTheme" data-height="60" data-padding="75"><img class="logo-main scale-with-grid" src="content/adventure/images/supplier-retina.png" data-retina="content/adventure/images/supplier.png" data-height="99"><img class="logo-sticky scale-with-grid" src="content/adventure/images/supplier-retina.png" data-retina="content/adventure/images/supplier.png" data-height="99"><img class="logo-mobile scale-with-grid" src="content/adventure/images/supplier-retina.png" data-retina="content/adventure/images/supplier.png" data-height="99"><img class="logo-mobile-sticky scale-with-grid" src="content/adventure/images/supplier-retina.png" data-retina="content/adventure/images/supplier.png" data-height="99"></a>
+                        <div class="logo logo-background">
+                            <a id="logo" href="{{ path('app_home') }}" title="Spectacles" data-height="60" data-padding="75">
+                                <div class=""></div>
+                            </a>
                         </div>
                         <div class="menu_wrapper">
                             <nav id="menu">
@@ -63,7 +227,7 @@
                                         <a href="{{ path('app_home') }}"><span>Home</span></a>
                                     </li>
                                     <li>
-                                        <a href=""><span>Inscription</span></a>
+                                        <a href="{{ path('app_register') }}"><span>Inscription</span></a>
                                     </li>
                                     <li>
                                         <a href="{{ path('app_shows') }}"><span>Nos spectacles</span></a>
@@ -72,13 +236,7 @@
                                         <a href="{{ path('app_artists') }}"><span>Nos artistes</span></a>
                                     </li>
                                     <li>
-                                        <a href="content/adventure/adventure-book.html"><span>My book</span></a>
-                                    </li>
-                                    <li>
                                         <a href="content/adventure/contact.html"><span>Contact</span></a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" href="http://bit.ly/1M6lijQ"><span><span style="color:#ffdfbf">Buy now</span></span></a>
                                     </li>
                                 </ul>
                             </nav>
@@ -87,7 +245,7 @@
                     </div>
                     <div class="top_bar_right">
                         <div class="top_bar_right_wrapper">
-                            <a id="header_cart" href="#"><i class="icon-bag-fine"></i><span>0</span></a>
+                            <a id="header_cart" href="{{ path('cart_index') }}"><i class="icon-bag-fine"></i><span>{% if app.session.get('cart') is defined %}{{ app.session.get('cart')|length }}{% else %}0{% endif %}</span></a>
                         </div>
                     </div>
                     <div class="banner_wrapper"></div>
@@ -95,142 +253,141 @@
             </div>
         </div>
     </div>
-    </div>
-        {% block body %}{% endblock %}
+</div>
+{% block body %}{% endblock %}
 
-        <footer id="Footer" class="clearfix">
-        <div class="widgets_wrapper" style="padding:70px 0">
-            <div class="container">
-                <div class="column one-third">
-                    <aside class="widget_text widget widget_custom_html">
-                        <div class="textwidget custom-html-widget">
-                            <h4>Find us here</h4>
-                            <hr class="no_line" style="margin:0 auto 20px">
-                            <p>
-                                <a style="margin-right:5px; font-size:18px" href="#"><i class="icon-facebook"></i></a><a style="margin-right:5px; font-size:18px" href="#"><i class="icon-gplus"></i></a><a style="margin-right:5px; font-size:18px" href="#"><i class="icon-twitter"></i></a>
-                                <a style="margin-right:5px;font-size:18px" href="#"><i class="icon-linkedin"></i></a>
-                            </p>
-                            <hr class="no_line" style="margin:0 auto 40px">
-                        </div>
-                    </aside>
-                </div>
-                <div class="column one-third">
-                    <aside class="widget_text widget widget_custom_html">
-                        <div class="textwidget custom-html-widget">
-                            <h4> Contact with us</h4>
-                            <hr class="no_line" style="margin:0 auto 20px">
-                            <p>
-                                Nullam viverra consectetuer
-                                <br> quisque cursus et, porttitor risus.
-                            </p>
-                            <p>
-                                +61 (0) 3 8376 6284
-                                <br> noreply@envato.com
-                            </p>
-                        </div>
-                    </aside>
-                </div>
-                <div class="column one-third">
-                    <aside class="widget_text widget widget_custom_html">
-                        <div class="textwidget custom-html-widget">
-                            <h4> Localization</h4>
-                            <hr class="no_line" style="margin:0 auto 20px"> Envato
-                            <br> Level 13, 2 Elizabeth
-                            <br> Victoria 3000
-                            <br> Australia
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </div>
-        <div class="footer_copy">
-            <div class="container">
-                <div class="column one">
-                    <a id="back_to_top" class="button button_js" href="#"><i class="icon-up-open-big"></i></a>
-                    <div class="copyright">
-                        &copy; 2018 BeAdventure - BeTheme. Muffin group - HTML by <a target="_blank" rel="nofollow" href="http://bit.ly/1M6lijQ">BeantownThemes</a>
+<footer id="Footer" class="clearfix">
+    <div class="widgets_wrapper" style="padding:70px 0">
+        <div class="container">
+            <div class="column one-third">
+                <aside class="widget_text widget widget_custom_html">
+                    <div class="textwidget custom-html-widget">
+                        <h4>Find us here</h4>
+                        <hr class="no_line" style="margin:0 auto 20px">
+                        <p>
+                            <a style="margin-right:5px; font-size:18px" href="#"><i class="fa-brands fa-facebook"></i></a><a style="margin-right:5px; font-size:18px" href="#"><i class="fa-brands fa-square-google-plus"></i></a><a style="margin-right:5px; font-size:18px" href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+                            <a style="margin-right:5px;font-size:18px" href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </p>
+                        <hr class="no_line" style="margin:0 auto 40px">
                     </div>
+                </aside>
+            </div>
+            <div class="column one-third">
+                <aside class="widget_text widget widget_custom_html">
+                    <div class="textwidget custom-html-widget">
+                        <h4> Contact with us</h4>
+                        <hr class="no_line" style="margin:0 auto 20px">
+                        <p>
+                            Nullam viverra consectetuer
+                            <br> quisque cursus et, porttitor risus.
+                        </p>
+                        <p>
+                            +61 (0) 3 8376 6284
+                            <br> noreply@envato.com
+                        </p>
+                    </div>
+                </aside>
+            </div>
+            <div class="column one-third">
+                <aside class="widget_text widget widget_custom_html">
+                    <div class="textwidget custom-html-widget">
+                        <h4> Localization</h4>
+                        <hr class="no_line" style="margin:0 auto 20px"> Envato
+                        <br> Level 13, 2 Elizabeth
+                        <br> Victoria 3000
+                        <br> Australia
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+    <div class="footer_copy">
+        <div class="container">
+            <div class="column one">
+                <a id="back_to_top" class="button button_js" href="#"><i class="fa-solid fa-chevron-up"></i></a>
+                <div class="copyright">
+                    © 2018 BeAdventure - BeTheme. Muffin group - HTML by <a target="_blank" rel="nofollow" href="http://bit.ly/1M6lijQ">BeantownThemes</a>
                 </div>
             </div>
         </div>
-        
-    </footer>
-    </body>
-
-    
-
-    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery-migrate-3.4.0.min.js') }}"></script>
+    </div>
+</footer>
+</body>
 
 
-    <script src= {{ asset('assets/js/mfn.menu.js') }}>"></script>
-    <script src= {{ asset('assets/js/jquery.plugins.js') }}>"></script>
-    <script src= {{ asset('assets/js/jquery.jplayer.min.js') }}>"></script>
-    <script src= {{ asset('assets/js/animations/animations.js') }}>"></script>
-    <script src= {{ asset('assets/js/translate3d.js') }}>"></script>
-    <script src= {{ asset('assets/js/scripts.js') }}>"></script>
 
-    <script src= {{ asset('assets/js/jquery.themepunch.tools.min.js') }}>"></script>
-    <script src= {{ asset('assets/js/jquery.themepunch.revolution.min.js') }}>"></script>
+<script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery-migrate-3.4.0.min.js') }}"></script>
 
-    <script src= {{ asset('assets/js/extensions/revolution.extension.video.min.js') }}>"></script>
-    <script src= {{ asset('assets/js/extensions/revolution.extension.slideanims.min.js') }}>"></script>
-    <script src= {{ asset('assets/js/extensions/revolution.extension.actions.min.js') }}>"></script>
-    <script src= {{ asset('assets/js/extensions/revolution.extension.layeranimation.min.js') }}>"></script>
-    <script src= {{ asset('assets/js/extensions/revolution.extension.kenburn.min.js') }}>"></script>
-    <script src= {{ asset('assets/js/extensions/revolution.extension.navigation.min.js') }}>"></script>
-    <script src= {{ asset('assets/js/extensions/revolution.extension.migration.min.js') }}>"></script>
-    <script src= {{ asset('assets/js/extensions/revolution.extension.parallax.min.js') }}>"></script>
-    <script src="https://kit.fontawesome.com/6b80c2aa8d.js" crossorigin="anonymous"></script>
-    <script>
-        let revapi1, tpj;
-        ( function() {
-            if (!/loaded|interactive|complete/.test(document.readyState))
-                document.addEventListener("DOMContentLoaded", onLoad);
-            else
-                onLoad();
-            function onLoad() {
-                if (tpj === undefined) {
-                    tpj = jQuery;
-                    if ("off" =="on")
-                        tpj.noConflict();
-                }
-                if (tpj("#rev_slider_1_1").revolution == undefined) {
-                    revslider_showDoubleJqueryError("#rev_slider_1_1");
-                } else {
-                    revapi1 = tpj("#rev_slider_1_1").show().revolution({
-                        sliderType :"standard",
-                        sliderLayout :"auto",
-                        dottedOverlay :"none",
-                        delay : 9000,
-                        navigation : {
-                            onHoverStop :"off",
-                        },
-                        visibilityLevels : [1240, 1024, 778, 480],
-                        gridwidth : 1240,
-                        gridheight : 800,
-                        lazyType :"none",
-                        shadow : 0,
-                        spinner :"spinner3",
-                        stopLoop :"off",
-                        stopAfterLoops : -1,
-                        stopAtSlide : -1,
-                        shuffle :"off",
-                        autoHeight :"off",
-                        disableProgressBar :"on",
-                        hideThumbsOnMobile :"off",
-                        hideSliderAtLimit : 0,
-                        hideCaptionAtLimit : 0,
-                        hideAllCaptionAtLilmit : 0,
-                        debugMode : false,
-                        fallbacks : {
-                            simplifyAll :"off",
-                            nextSlideOnWindowFocus :"off",
-                            disableFocusListener : false,
-                        }
-                    });
-                }
+
+<script src= {{ asset('assets/js/mfn.menu.js') }}>"></script>
+<script src= {{ asset('assets/js/jquery.plugins.js') }}>"></script>
+<script src= {{ asset('assets/js/jquery.jplayer.min.js') }}>"></script>
+<script src= {{ asset('assets/js/animations/animations.js') }}>"></script>
+<script src= {{ asset('assets/js/translate3d.js') }}>"></script>
+<script src= {{ asset('assets/js/scripts.js') }}>"></script>
+
+<script src= {{ asset('assets/js/jquery.themepunch.tools.min.js') }}>"></script>
+<script src= {{ asset('assets/js/jquery.themepunch.revolution.min.js') }}>"></script>
+
+<script src= {{ asset('assets/js/extensions/revolution.extension.video.min.js') }}>"></script>
+<script src= {{ asset('assets/js/extensions/revolution.extension.slideanims.min.js') }}>"></script>
+<script src= {{ asset('assets/js/extensions/revolution.extension.actions.min.js') }}>"></script>
+<script src= {{ asset('assets/js/extensions/revolution.extension.layeranimation.min.js') }}>"></script>
+<script src= {{ asset('assets/js/extensions/revolution.extension.kenburn.min.js') }}>"></script>
+<script src= {{ asset('assets/js/extensions/revolution.extension.navigation.min.js') }}>"></script>
+<script src= {{ asset('assets/js/extensions/revolution.extension.migration.min.js') }}>"></script>
+<script src= {{ asset('assets/js/extensions/revolution.extension.parallax.min.js') }}>"></script>
+<script src="https://kit.fontawesome.com/6b80c2aa8d.js" crossorigin="anonymous"></script>
+<script>
+    let revapi1, tpj;
+    ( function() {
+        if (!/loaded|interactive|complete/.test(document.readyState))
+            document.addEventListener("DOMContentLoaded", onLoad);
+        else
+            onLoad();
+        function onLoad() {
+            if (tpj === undefined) {
+                tpj = jQuery;
+                if ("off" =="on")
+                    tpj.noConflict();
             }
-        }());
-    </script>
+            if (tpj("#rev_slider_1_1").revolution == undefined) {
+                revslider_showDoubleJQueryError("#rev_slider_1_1");
+            } else {
+                revapi1 = tpj("#rev_slider_1_1").show().revolution({
+                    sliderType :"standard",
+                    sliderLayout :"auto",
+                    dottedOverlay :"none",
+                    delay : 9000,
+                    navigation : {
+                        onHoverStop :"off",
+                    },
+                    visibilityLevels : [1240, 1024, 778, 480],
+                    gridwidth : 1240,
+                    gridheight : 800,
+                    lazyType :"none",
+                    shadow : 0,
+                    spinner :"spinner3",
+                    stopLoop :"off",
+                    stopAfterLoops : -1,
+                    stopAtSlide : -1,
+                    shuffle :"off",
+                    autoHeight :"off",
+                    disableProgressBar :"on",
+                    hideThumbsOnMobile :"off",
+                    hideSliderAtLimit : 0,
+                    hideCaptionAtLimit : 0,
+                    hideAllCaptionAtLilmit : 0,
+                    debugMode : false,
+                    fallbacks : {
+                        simplifyAll :"off",
+                        nextSlideOnWindowFocus :"off",
+                        disableFocusListener : false,
+                    }
+                });
+            }
+        }
+    }());
+</script>
 </html>

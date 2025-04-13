@@ -83,87 +83,132 @@
                                                     
                                                 </div>
 
-                                                <h3 class="text-decoration-underline">Représentations</h3>
-                                                {% if spectacle.schedule|length > 0 %}
-                                                    <ul>
-                                                        {% for representation in spectacle.schedule %}
-                                                            <li>
-                                                                Date: {{ representation.schedule|date('d/m/Y H:i') }}
-                                                                {% if representation.locationId %}
-                                                                    - Lieu: {{ representation.locationId.designation }}
-                                                                {% endif %}
-                                                            </li>
-                                                        {% endfor %}
-                                                    </ul>
-                                                {% else %}
-                                                    <p>Aucune représentation programmée pour ce spectacle.</p>
-                                                {% endif %}
-                                                <hr>
-                                                {# Organiser les artistes par type #}
-                                                {% set auteurs = [] %}
-                                                {% set metteurs_en_scene = [] %}
-                                                {% set distribution = [] %}
+                                                <div class="show-details-container">
+                                                    <!-- Section Représentations -->
+                                                    <div class="detail-section representations-section">
+                                                        <h3 class="section-title">
+                                                            <i class="fa-solid fa-calendar-days"></i>
+                                                            Représentations
+                                                        </h3>
 
-                                                {% for artisteTypeShow in spectacle.artisteTypeShows %}
-                                                    {% set artisteType = artisteTypeShow.artisteTypeId %}
-                                                    {% set artiste = artisteType.artistId %}
-                                                    {% set type = artisteType.typeId %}
-                                                    
-                                                    {% if type.type == 'Auteur' %}
-                                                        {% set auteurs = auteurs|merge([artiste]) %}
-                                                    {% elseif type.type == 'Metteur en scène' %}
-                                                        {% set metteurs_en_scene = metteurs_en_scene|merge([artiste]) %}
-                                                    {% else %}
-                                                        {% set distribution = distribution|merge([artiste]) %}
-                                                    {% endif %}
-                                                {% endfor %}
-
-                                                {# Affichage des artistes par catégorie #}
-                                                {% if auteurs|length > 0 %}
-                                                    <h3>Auteur{% if auteurs|length > 1 %}s{% endif %}</h3>
-                                                    <p>
-                                                        {% for auteur in auteurs %}
-                                                            {{ auteur.firstname }} {{ auteur.lastname }}{% if not loop.last %}, {% endif %}
-                                                        {% endfor %}
-                                                    </p>
-                                                {% endif %}
-
-                                                {% if metteurs_en_scene|length > 0 %}
-                                                    <h3>Metteur{% if metteurs_en_scene|length > 1 %}s{% endif %} en scène</h3>
-                                                    <p>
-                                                        {% for metteur in metteurs_en_scene %}
-                                                            {{ metteur.firstname }} {{ metteur.lastname }}{% if not loop.last %}, {% endif %}
-                                                        {% endfor %}
-                                                    </p>
-                                                {% endif %}
-
-                                                {% if distribution|length > 0 %}
-                                                    <h3>Distribution</h3>
-                                                    <p>
-                                                        {% for artiste in distribution %}
-                                                            {{ artiste.firstname }} {{ artiste.lastname }}{% if not loop.last %}, {% endif %}
-                                                        {% endfor %}
-                                                    </p>
-                                                {% endif %}
-                                                <hr>
-                                                {% if spectacle.bookable %}
-                                                <h3> Réservations </h3>
-                                                <form class="cart" action="#" method="post" enctype="multipart/form-data">
-                                                    <div class="quantity">
-                                                        <label class="screen-reader-text" for="quantity_5af9b4eee8b1c">Quantity</label>
-                                                        <input type="number" id="quantity_5af9b4eee8b1c" class="input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" aria-labelledby="">
+                                                        <div class="section-content">
+                                                            {% if spectacle.schedule|length > 0 %}
+                                                                <div class="representation-list">
+                                                                    {% for representation in spectacle.schedule %}
+                                                                        <div class="representation-card">
+                                                                            <div class="representation-date">
+                                                                                <i class="fa-regular fa-clock"></i>
+                                                                                {{ representation.schedule|date('d/m/Y H:i') }}
+                                                                            </div>
+                                                                            {% if representation.locationId %}
+                                                                                <div class="representation-location">
+                                                                                    <i class="fa-solid fa-location-dot"></i>
+                                                                                    {{ representation.locationId.designation }}
+                                                                                </div>
+                                                                            {% endif %}
+                                                                        </div>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            {% else %}
+                                                                <div class="no-data">
+                                                                    <i class="fa-solid fa-calendar-xmark"></i>
+                                                                    <p>Aucune représentation programmée pour ce spectacle.</p>
+                                                                </div>
+                                                            {% endif %}
+                                                        </div>
                                                     </div>
-                                                    <button type="submit" name="add-to-cart" value="55" class="single_add_to_cart_button button alt">
-															Add to cart
-														</button>
-                                                </form>
-                                                {% else %}
-                                                <div class="product_meta">
-                                                    <span class="posted_in">Reservation indisponible pour le moment</span>
-                                                </div>
-                                                {% endif %}
 
-                                                
+                                                    <div class="separator"></div>
+
+                                                    <!-- Section Artistes -->
+                                                    <div class="detail-section artists-section">
+                                                        {% set auteurs = [] %}
+                                                        {% set metteurs_en_scene = [] %}
+                                                        {% set distribution = [] %}
+
+                                                        {% for artisteTypeShow in spectacle.artisteTypeShows %}
+                                                            {% set artisteType = artisteTypeShow.artisteTypeId %}
+                                                            {% set artiste = artisteType.artistId %}
+                                                            {% set type = artisteType.typeId %}
+
+                                                            {% if type.type == 'Auteur' %}
+                                                                {% set auteurs = auteurs|merge([artiste]) %}
+                                                            {% elseif type.type == 'Metteur en scène' %}
+                                                                {% set metteurs_en_scene = metteurs_en_scene|merge([artiste]) %}
+                                                            {% else %}
+                                                                {% set distribution = distribution|merge([artiste]) %}
+                                                            {% endif %}
+                                                        {% endfor %}
+
+                                                        {% if auteurs|length > 0 %}
+                                                            <div class="artist-category">
+                                                                <h3 class="category-title">
+                                                                    <i class="fa-solid fa-pen-fancy"></i>
+                                                                    Auteur{% if auteurs|length > 1 %}s{% endif %}
+                                                                </h3>
+                                                                <div class="artist-list">
+                                                                    {% for auteur in auteurs %}
+                                                                        <div class="artist-chip">{{ auteur.firstname }} {{ auteur.lastname }}</div>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+
+                                                        {% if metteurs_en_scene|length > 0 %}
+                                                            <div class="artist-category">
+                                                                <h3 class="category-title">
+                                                                    <i class="fa-solid fa-film"></i>
+                                                                    Metteur{% if metteurs_en_scene|length > 1 %}s{% endif %} en scène
+                                                                </h3>
+                                                                <div class="artist-list">
+                                                                    {% for metteur in metteurs_en_scene %}
+                                                                        <div class="artist-chip">{{ metteur.firstname }} {{ metteur.lastname }}</div>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+
+                                                        {% if distribution|length > 0 %}
+                                                            <div class="artist-category">
+                                                                <h3 class="category-title">
+                                                                    <i class="fa-solid fa-users"></i>
+                                                                    Distribution
+                                                                </h3>
+                                                                <div class="artist-list">
+                                                                    {% for artiste in distribution %}
+                                                                        <div class="artist-chip">{{ artiste.firstname }} {{ artiste.lastname }}</div>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                {% if app.user %}
+                                                    {% if spectacle.bookable %}
+                                                        <h3>Réservations</h3>
+                                                        <form class="cart" action="{{ path('add', {'id': spectacle.id}) }}" method="post">
+                                                            <div class="quantity">
+                                                                <label for="quantity">Quantité</label>
+                                                                <input type="number" id="quantity" class="input-text qty text" step="1" min="1" max="10" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
+                                                            </div>
+                                                            <button type="submit" class="single_add_to_cart_button button alt">
+                                                                Ajouter au panier
+                                                            </button>
+                                                        </form>
+                                                    {% else %}
+                                                    <div class="product_meta">
+                                                        <span class="posted_in">Reservation indisponible pour le moment</span>
+                                                    </div>
+                                                    {% endif %}
+
+                                                {% else %}
+                                                    {# L'utilisateur n'est pas connecté #}
+                                                    <a href="{{ path('app_login') }}" class="login-button">
+                                                        <i class="fa-solid fa-user-lock"></i>
+                                                        <span>Connexion</span>
+                                                    </a>
+                                                {% endif %}
 
 
                                                 <div class="product_meta">
@@ -179,62 +224,7 @@
                 </div>
             </div>
         </div>
-        <footer id="Footer" class="clearfix">
-            <div class="widgets_wrapper" style="padding:70px 0">
-                <div class="container">
-                    <div class="column one-third">
-                        <aside class="widget_text widget widget_custom_html">
-                            <div class="textwidget custom-html-widget">
-                                <h4>Find us here</h4>
-                                <hr class="no_line" style="margin:0 auto 20px">
-                                <p>
-                                    <a style="margin-right:5px; font-size:18px" href="#"><i class="icon-facebook"></i></a><a style="margin-right:5px; font-size:18px" href="#"><i class="icon-gplus"></i></a><a style="margin-right:5px; font-size:18px" href="#"><i class="icon-twitter"></i></a>
-                                    <a style="margin-right:5px;font-size:18px" href="#"><i class="icon-linkedin"></i></a>
-                                </p>
-                                <hr class="no_line" style="margin:0 auto 40px">
-                            </div>
-                        </aside>
-                    </div>
-                    <div class="column one-third">
-                        <aside class="widget_text widget widget_custom_html">
-                            <div class="textwidget custom-html-widget">
-                                <h4> Contact with us</h4>
-                                <hr class="no_line" style="margin:0 auto 20px">
-                                <p>
-                                    Nullam viverra consectetuer
-                                    <br> quisque cursus et, porttitor risus.
-                                </p>
-                                <p>
-                                    +61 (0) 3 8376 6284
-                                    <br> noreply@envato.com
-                                </p>
-                            </div>
-                        </aside>
-                    </div>
-                    <div class="column one-third">
-                        <aside class="widget_text widget widget_custom_html">
-                            <div class="textwidget custom-html-widget">
-                                <h4> Localization</h4>
-                                <hr class="no_line" style="margin:0 auto 20px"> Envato
-                                <br> Level 13, 2 Elizabeth
-                                <br> Victoria 3000
-                                <br> Australia
-                            </div>
-                        </aside>
-                    </div>
-                </div>
-            </div>
-            <div class="footer_copy">
-                <div class="container">
-                    <div class="column one">
-                        <a id="back_to_top" class="button button_js" href="#"><i class="icon-up-open-big"></i></a>
-                        <div class="copyright">
-                            © 2018 BeAdventure - BeTheme. Muffin group - HTML by <a target="_blank" rel="nofollow" href="http://bit.ly/1M6lijQ">BeantownThemes</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+
     </div>
 
     <style>
@@ -258,6 +248,152 @@
 .duration-text {
     letter-spacing: 0.5px;
 }
+
+    .show-details-container {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        padding: 2rem;
+        margin: 2rem 0;
+    }
+
+    .detail-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+        color: #3d5a80;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #e0fbfc;
+    }
+
+    .section-title i {
+        margin-right: 0.5rem;
+        color: #ee6c4d;
+    }
+
+    .representation-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .representation-card {
+        background-color: #f7f9fb;
+        border-radius: 8px;
+        padding: 1rem;
+        flex: 1 1 250px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .representation-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .representation-date, .representation-location {
+        margin: 0.5rem 0;
+    }
+
+    .representation-date i, .representation-location i {
+        color: #ee6c4d;
+        width: 1.2rem;
+        text-align: center;
+        margin-right: 0.5rem;
+    }
+
+    .separator {
+        height: 1px;
+        background-color: #e0e0e0;
+        margin: 2rem 0;
+        width: 100%;
+    }
+
+    .artist-category {
+        margin-bottom: 1.5rem;
+    }
+
+    .category-title {
+        color: #293241;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .category-title i {
+        color: #ee6c4d;
+        margin-right: 0.5rem;
+    }
+
+    .artist-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .artist-chip {
+        background-color: #e0fbfc;
+        color: #3d5a80;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        transition: background-color 0.2s;
+    }
+
+    .artist-chip:hover {
+        background-color: #98c1d9;
+        color: #293241;
+    }
+
+    .no-data {
+        display: flex;
+        align-items: center;
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 8px;
+        color: #6c757d;
+    }
+
+    .no-data i {
+        font-size: 1.5rem;
+        color: #ee6c4d;
+        margin-right: 1rem;
+    }
+
+    .no-data p {
+        margin: 0;
+    }
+
+    .login-button {
+        display: inline-flex;
+        align-items: center;
+        background-color: #3d5a80;
+        color: white;
+        padding: 0.7rem 1.2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-button:hover {
+        background-color: #293241;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .login-button i {
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .login-button span {
+        font-size: 0.95rem;
+    }
     </style>
 
 {% endblock %}

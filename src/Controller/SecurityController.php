@@ -17,8 +17,8 @@ class SecurityController extends AbstractController
         // }
 
         if ($this->getUser()) {
+
         // Vérifier si l'utilisateur a le rôle ROLE_ADMIN
-    
         if ($this->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('admin'); // Route vers l'admin
         } else {

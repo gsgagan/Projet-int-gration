@@ -1,0 +1,61 @@
+{# templates/checkout/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Paiement</h1>
+
+        <button id="checkout-button" class="btn btn-primary">Payer avec Stripe</button>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stripe = Stripe('{{ stripe_key }}');
+            const checkoutButton = document.getElementById('checkout-button');
+
+            if (!checkoutButton) {
+                console.error('Element #checkout-button non trouvé');
+                return;
+            }
+
+            checkoutButton.addEventListener('click', () => {
+                console.log(stripe);
+
+                fetch('{{ path('create_session') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Erreur lors de la création de la session');
+                        }
+                        return response.json();
+                    })
+                    .then(session => {
+                        console.log('Session Stripe reçue : ', session);
+                        if (session && session.id) {
+                            return stripe.redirectToCheckout({ sessionId: session.id });
+                        } else {
+                            throw new Error('Session ID manquant dans la réponse');
+                        }
+                    })
+                    .then(result => {
+                        if (result && result.error) {
+                            console.error('Erreur Stripe : ', result.error.message);
+                            alert(result.error.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erreur dans le processus de paiement:', error);
+                    });
+            });
+        });
+    </script>
+{% endblock %}
+
+

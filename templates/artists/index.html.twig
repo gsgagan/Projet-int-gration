@@ -1,58 +1,150 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArtistsController!{% endblock %}
+{% block title %}Nos artistes{% endblock %}
 
 {% block body %}
-<div class="artists-container">
-<h1>Liste des artistes</h1>
-    {% for artist in artists %}
-        <div class="artist-card">
-            <div class="artist-avatar">
-                <i class="fa-solid fa-user-circle"></i>
-            </div>
-            <div class="artist-info">
-                <a href="{{ path('app_artist_details', {'id': artist.id}) }}"> <h4 class="artist-name">{{ artist.firstname }} {{ artist.lastname }}</h4> </a>
+    <div id="Wrapper">
+        <div id="Header_wrapper">
+            <div id="Subheader" style="padding:100px 0">
+                <div class="container">
+                    <div class="column one">
+                        <h2 class="title">Nos artistes</h2>
+                    </div>
+                </div>
             </div>
         </div>
-    {% endfor %}
-</div>
 
-<style>
-    .artists-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin: 2rem auto;
-        max-width: 600px;
-        padding: 2rem;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .artist-card {
-        display: flex;
-        align-items: center;
-        padding: 0.75rem;
-        border-bottom: 1px solid #f0f0f0;
-        text-align: center;
-    }
-    
-    .artist-card:last-child {
-        border-bottom: none;
-    }
-    
-    .artist-avatar {
-        font-size: 1.5rem;
-        color: #6c757d;
-        margin-right: 1rem;
-    }
-    
-    .artist-name {
-        margin: 0;
-        font-weight: 500;
-        color: #333;
-    }
-</style>
+        <div id="Content">
+            <div class="content_wrapper clearfix">
+                <div class="sections_group">
+                    <div class="section">
+                        <div class="section_wrapper clearfix">
+                            <div class="artists-grid">
+                                {% for artist in artists %}
+                                    <div class="artist-card">
+                                        <div class="artist-top">
+                                            <div class="artist-avatar">
+                                                <i class="fa-solid fa-user"></i>
+                                            </div>
+                                            <h3 class="artist-name">{{ artist.firstname }} {{ artist.lastname }}</h3>
+                                        </div>
+                                        <div class="artist-separator"></div>
+                                        <div class="artist-footer">
+                                            <a href="{{ path('app_artist_details', {'id': artist.id}) }}" class="artist-button">
+                                                <span>Voir détails</span>
+                                                <i class="fa-solid fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .artist-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .artist-top {
+            padding: 30px 20px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .artist-avatar {
+            width: 100px;
+            height: 100px;
+            background-color: #3d5a80;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+        }
+
+        .artist-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #293241;
+            margin: 0;
+        }
+
+        .artist-separator {
+            height: 1px;
+            background-image: linear-gradient(to right, transparent, #e0e0e0, transparent);
+            margin: 0 20px;
+        }
+
+        .artist-footer {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .artist-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ee6c4d;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .artist-button:hover {
+            background-color: #e0522d;
+        }
+
+        .artist-button i {
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .artist-button:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .artists-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .artists-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 {% endblock %}

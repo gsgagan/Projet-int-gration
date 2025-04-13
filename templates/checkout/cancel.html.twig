@@ -1,0 +1,14 @@
+{# templates/checkout/cancel.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement annulé{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="alert alert-warning">
+            <h1>Paiement annulé</h1>
+            <p>Votre paiement a été annulé. Aucun montant n'a été débité.</p>
+            <a href="{{ path('cart_index') }}" class="btn btn-primary">Retour au panier</a>
+        </div>
+    </div>
+{% endblock %}

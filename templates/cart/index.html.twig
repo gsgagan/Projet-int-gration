@@ -1,0 +1,317 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre panier{% endblock %}
+
+{% block body %}
+    <div id="Wrapper">
+        <div id="Header_wrapper">
+            <div id="Subheader" style="padding:100px 0">
+                <div class="container">
+                    <div class="column one">
+                        <h2 class="title">Panier</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Content">
+            <div class="content_wrapper clearfix">
+                <div class="sections_group">
+                    <div class="section">
+                        <div class="section_wrapper clearfix">
+                            <div class="items_group clearfix">
+                                <div class="column one woocommerce-content">
+                                    <div class="cart-container">
+                                        {% if items|length > 0 %}
+                                            <table class="cart-table">
+                                                <thead>
+                                                <tr>
+                                                    <th class="product-image">Image</th>
+                                                    <th class="product-name">Spectacle</th>
+                                                    <th class="product-price">Prix unitaire</th>
+                                                    <th class="product-quantity">Quantité</th>
+                                                    <th class="product-subtotal">Total</th>
+                                                    <th class="product-remove">Actions</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for item in items %}
+                                                    <tr>
+                                                        <td class="product-image">
+                                                            <img src="{{ asset('uploads/' ~ item.show.posterUrl) }}" alt="{{ item.show.title }}" width="80">
+                                                        </td>
+                                                        <td class="product-name">
+                                                            <a href="{{ path('app_spectacle_detail', {'slug': item.show.slug}) }}">
+                                                                {{ item.show.title }}
+                                                            </a>
+                                                            <div class="product-details">
+                                                                <span class="duration">
+                                                                    <i class="fa-solid fa-clock"></i> {{ item.show.duration }} minutes
+                                                                </span>
+                                                                {% if item.show.locationId %}
+                                                                    <span class="location">
+                                                                        <i class="fa-solid fa-location-dot"></i> {{ item.show.locationId.designation }}
+                                                                    </span>
+                                                                {% endif %}
+                                                            </div>
+                                                        </td>
+                                                        <td class="product-price">{{ item.price }} €</td>
+                                                        <td class="product-quantity">
+                                                            <div class="quantity-controls">
+                                                                <a href="{{ path('decrease', {'id': item.show.id}) }}" class="qty-btn decrease">
+                                                                    <i class="fa-solid fa-minus"></i>
+                                                                </a>
+                                                                <span class="qty-value">{{ item.quantity }}</span>
+                                                                <a href="{{ path('add', {'id': item.show.id}) }}" class="qty-btn increase">
+                                                                    <i class="fa-solid fa-plus"></i>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="product-subtotal">{{ item.price * item.quantity }} €</td>
+                                                        <td class="product-remove">
+                                                            <a href="{{ path('remove', {'id': item.show.id}) }}" class="remove-btn">
+                                                                <i class="fa-solid fa-trash"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                                <tfoot>
+                                                <tr class="cart-total">
+                                                    <td colspan="4" class="total-label">Total:</td>
+                                                    <td class="total-amount">{{ total }} €</td>
+                                                    <td></td>
+                                                </tr>
+                                                </tfoot>
+                                            </table>
+
+                                            <div class="cart-actions">
+                                                <a href="{{ path('clear') }}" class="clear-cart-btn">
+                                                    <i class="fa-solid fa-trash-can"></i> Vider le panier
+                                                </a>
+                                                <a href="{{ path('checkout_index') }}" class="checkout-btn">
+                                                    <i class="fa-solid fa-credit-card"></i> Procéder au paiement
+                                                </a>
+                                            </div>
+                                        {% else %}
+                                            <div class="empty-cart">
+                                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                                <h3>Votre panier est vide</h3>
+                                                <p>Vous n'avez aucun article dans votre panier.</p>
+                                                <a href="{{ path('app_home') }}" class="return-btn">
+                                                    <i class="fa-solid fa-theater-masks"></i> Découvrir nos spectacles
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .cart-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        .cart-table th, .cart-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .cart-table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .product-details {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .product-details span {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        .product-details i {
+            color: #ee6c4d;
+            margin-right: 0.3rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background-color: #f0f0f0 !important;
+            border-radius: 4px;
+            color: #333 !important;
+            text-decoration: none !important;
+            transition: none !important;
+            transform: none !important;
+        }
+
+        .qty-btn:hover, .qty-btn:focus, .qty-btn:active {
+            background-color: #f0f0f0 !important;
+            color: #333 !important;
+            transform: none !important;
+            text-decoration: none !important;
+            box-shadow: none !important;
+        }
+
+        .qty-value {
+            padding: 0 12px;
+            font-weight: 500;
+        }
+
+        .remove-btn {
+            color: #ff6b6b !important;
+            font-size: 1.1rem;
+        }
+
+        .remove-btn:hover, .remove-btn:focus {
+            color: #ff6b6b !important;
+            transform: none !important;
+        }
+
+        .cart-total {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .total-label {
+            text-align: right;
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .clear-cart-btn, .checkout-btn, .return-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none !important;
+            font-weight: 500;
+            transition: none !important;
+            transform: none !important;
+        }
+
+        .clear-cart-btn {
+            background-color: #f8f9fa !important;
+            color: #6c757d !important;
+        }
+
+        .clear-cart-btn:hover, .clear-cart-btn:focus {
+            background-color: #f8f9fa !important;
+            color: #6c757d !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .checkout-btn {
+            background-color: #3d5a80 !important;
+            color: white !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .checkout-btn:hover, .checkout-btn:focus {
+            background-color: #3d5a80 !important;
+            color: white !important;
+            transform: none !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .clear-cart-btn i, .checkout-btn i, .return-btn i {
+            margin-right: 0.5rem;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .empty-cart i {
+            font-size: 4rem;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-cart p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .return-btn {
+            background-color: #3d5a80 !important;
+            color: white !important;
+            margin: 0 auto;
+            display: inline-flex;
+        }
+
+        .return-btn:hover, .return-btn:focus {
+            background-color: #3d5a80 !important;
+            color: white !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Désactivez tous les effets de transitions et animations pour ces éléments */
+        .cart-container a, .cart-container button {
+            transition: none !important;
+        }
+
+        /* Empêcher tout changement sur les liens dans le panier */
+        .cart-container a:hover {
+            color: inherit !important;
+            background-color: inherit !important;
+            transform: none !important;
+        }
+
+        /* On redéfinit le fond et la couleur du texte au survol pour forcer l'héritage */
+        .cart-table tr,
+        .cart-table tr a,
+        .cart-table tr a:hover,
+        .cart-table tr:hover,
+        .cart-table tr td,
+        .cart-table tr:hover td {
+            background-color: transparent !important;
+            color: inherit !important;
+        }
+    </style>
+{% endblock %}

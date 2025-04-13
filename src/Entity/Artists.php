@@ -6,25 +6,59 @@ use App\Repository\ArtistsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Hateoas\Configuration\Annotation as Hateoas;
+use JMS\Serializer\Annotation as Serializer;
 
+/**
+ * @Hateoas\Relation(
+ *     "self",
+ *     href = @Hateoas\Route(
+ *         "api_artist_detail",
+ *         parameters = {"id" = "expr(object.getId())"},
+ *         absolute = true
+ *     )
+ * )
+ * @Hateoas\Relation(
+ *     "shows",
+ *     href = @Hateoas\Route(
+ *         "api_artist_shows",
+ *         parameters = {"id" = "expr(object.getId())"},
+ *         absolute = true
+ *     )
+ * )
+ */
 #[ORM\Entity(repositoryClass: ArtistsRepository::class)]
 class Artists
 {
+    /**
+     * @Serializer\Groups({"artists", "artist", "show"})
+     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Serializer\Groups(["artists", "artist", "show"])]
     private ?int $id = null;
 
+    /**
+     * @Serializer\Groups({"artists", "artist", "show"})
+     */
     #[ORM\Column(length: 60)]
+    #[Serializer\Groups(["artists", "artist", "show"])]
     private ?string $firstname = null;
 
+    /**
+     * @Serializer\Groups({"artists", "artist", "show"})
+     */
     #[ORM\Column(length: 60)]
+    #[Serializer\Groups(["artists", "artist", "show"])]
     private ?string $lastname = null;
 
     /**
      * @var Collection<int, ArtisteType>
+     * @Serializer\Groups({"artist"})
      */
     #[ORM\OneToMany(targetEntity: ArtisteType::class, mappedBy: 'artistId')]
+    #[Serializer\Groups(["artist"])]
     private Collection $artisteTypes;
 
     public function __construct()
@@ -89,6 +123,19 @@ class Artists
         }
 
         return $this;
+    }
+
+    /**
+     * @Serializer\VirtualProperty
+     * @Serializer\SerializedName("fullName")
+     * @Serializer\Groups({"artists", "artist", "show"})
+     */
+    #[Serializer\VirtualProperty]
+    #[Serializer\SerializedName("fullName")]
+    #[Serializer\Groups(["artists", "artist", "show"])]
+    public function getFullName(): string
+    {
+        return $this->firstname . ' ' . $this->lastname;
     }
 
     public function __toString(): string

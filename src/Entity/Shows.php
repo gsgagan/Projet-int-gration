@@ -6,61 +6,134 @@ use App\Repository\ShowsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Hateoas\Configuration\Annotation as Hateoas;
+use JMS\Serializer\Annotation as Serializer;
+
+/**
+ * @Hateoas\Relation(
+ *     "self",
+ *     href = @Hateoas\Route(
+ *         "api_show_detail",
+ *         parameters = {"id" = "expr(object.getId())"},
+ *         absolute = true
+ *     )
+ * )
+ * @Hateoas\Relation(
+ *     "reservations",
+ *     href = @Hateoas\Route(
+ *         "api_show_reservations",
+ *         parameters = {"id" = "expr(object.getId())"},
+ *         absolute = true
+ *     )
+ * )
+ *
+ * @ORM\Entity(repositoryClass=ShowsRepository::class)
+ */
 
 #[ORM\Entity(repositoryClass: ShowsRepository::class)]
 class Shows
 {
+    /**
+     * @Serializer\Groups({"shows", "show"})
+     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Serializer\Groups(["shows", "show"])]
     private ?int $id = null;
 
+    /**
+     * @Serializer\Groups({"shows", "show"})
+     */
     #[ORM\Column(length: 30)]
+    #[Serializer\Groups(["shows", "show"])]
     private ?string $slug = null;
 
+    /**
+     * @Serializer\Groups({"shows", "show"})
+     */
     #[ORM\Column(length: 255)]
+    #[Serializer\Groups(["shows", "show"])]
     private ?string $title = null;
 
+    /**
+     * @Serializer\Groups({"shows", "show"})
+     */
     #[ORM\Column(length: 255)]
+    #[Serializer\Groups(["shows", "show"])]
     private ?string $posterUrl = null;
 
+    /**
+     * @Serializer\Groups({"shows", "show"})
+     */
     #[ORM\Column]
+    #[Serializer\Groups(["shows", "show"])]
     private ?int $duration = null;
 
+    /**
+     * @Serializer\Groups({"shows", "show"})
+     */
     #[ORM\Column]
+    #[Serializer\Groups(["shows", "show"])]
     private ?int $createdIn = null;
 
+    /**
+     * @Serializer\Groups({"shows", "show"})
+     */
     #[ORM\Column]
+    #[Serializer\Groups(["shows", "show"])]
     private ?bool $bookable = null;
 
+    /**
+     * @Serializer\Groups({"shows", "show"})
+     */
     #[ORM\Column(length: 255)]
+    #[Serializer\Groups(["shows", "show"])]
     private ?string $shortDesc = null;
 
+    /**
+     * @Serializer\Groups({"show"})
+     */
     #[ORM\Column(type: "text")]
+    #[Serializer\Groups(["show"])]
     private ?string $description = null;
 
+    /**
+     * @Serializer\Groups({"show"})
+     */
     #[ORM\ManyToOne(inversedBy: 'shows')]
+    #[Serializer\Groups(["show"])]
     private ?Locations $locationId = null;
 
     /**
      * @var Collection<int, Representations>
+     * @Serializer\Groups({"show"})
      */
     #[ORM\OneToMany(targetEntity: Representations::class, mappedBy: 'showshowId')]
+    #[Serializer\Groups(["show"])]
     private Collection $schedule;
 
     /**
      * @var Collection<int, ArtisteTypeShow>
+     * @Serializer\Groups({"show"})
      */
     #[ORM\OneToMany(targetEntity: ArtisteTypeShow::class, mappedBy: 'showId')]
+    #[Serializer\Groups(["show"])]
     private Collection $artisteTypeShows;
 
     /**
      * @var Collection<int, Reviews>
+     * @Serializer\Groups({"show"})
      */
     #[ORM\OneToMany(targetEntity: Reviews::class, mappedBy: 'showId')]
+    #[Serializer\Groups(["show"])]
     private Collection $reviews;
 
+    /**
+     * @Serializer\Groups({"shows", "show"})
+     */
     #[ORM\Column]
+    #[Serializer\Groups(["shows", "show"])]
     private ?bool $promoted = null;
 
     public function __construct()

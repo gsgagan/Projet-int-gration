@@ -1,0 +1,21 @@
+### Définir des variables
+@baseUrl = http://localhost:8001/api
+
+### Liste de tous les spectacles
+GET {{baseUrl}}/shows
+
+### Détails d'un spectacle
+GET {{baseUrl}}/show/1
+Accept: application/json
+
+### Liste de tous les artistes
+GET {{baseUrl}}/artists
+Accept: application/json
+
+### Détails d'un artiste
+GET {{baseUrl}}/artist/1
+Accept: application/json
+
+### Spectacles d'un artiste
+GET {{baseUrl}}/artist/1/shows
+Accept: application/json

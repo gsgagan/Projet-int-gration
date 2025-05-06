@@ -165,9 +165,39 @@
       <path value="$PROJECT_DIR$/vendor/api-platform/doctrine-common" />
       <path value="$PROJECT_DIR$/vendor/api-platform/serializer" />
       <path value="$PROJECT_DIR$/vendor/symfony/ux-twig-component" />
+      <path value="$PROJECT_DIR$/vendor/phpunit 2/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit 2/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit 2/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit 2/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/phpunit 2/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit 2/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/myclabs 2/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer-bundle 2" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata 2" />
+      <path value="$PROJECT_DIR$/vendor/phar-io 2/version" />
+      <path value="$PROJECT_DIR$/vendor/nikic 2/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/phar-io 2/manifest" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php84" />
+      <path value="$PROJECT_DIR$/vendor/nelmio 2/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/theseer 2/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/stripe/stripe-php" />
+      <path value="$PROJECT_DIR$/vendor/monolog 2/monolog" />
+      <path value="$PROJECT_DIR$/vendor/webmozart 2/assert" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/hateoas-bundle" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/jsonp-callback-validator" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/hateoas" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/hateoas-bundle 2" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/hateoas 2" />
+      <path value="$PROJECT_DIR$/vendor/willdurand 2/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/phpstan 2/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/vendor/masterminds 2/html5" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>

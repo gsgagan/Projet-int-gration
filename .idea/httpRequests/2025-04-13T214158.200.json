@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "slug": "nouveau-spectacle",
+    "title": "La légende de l’Enchanteur",
+    "poster_url": "2025-04-12-ea1c5d106ce956e64dad5c988a23d36140873954.png",
+    "duration": 90,
+    "created_in": 2025,
+    "bookable": true,
+    "short_desc": "Chanteuse énergique sous les projecteurs en pleine performance.",
+    "promoted": true
+  }
+]

@@ -1,0 +1,23 @@
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+deleted file mode 100644
+--- a/.idea/dataSources.xml	(revision 171662e429ea92478c19c2afb1a0ac6d91aa01dc)
++++ /dev/null	(revision 171662e429ea92478c19c2afb1a0ac6d91aa01dc)
+@@ -1,12 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+-    <data-source source="LOCAL" name="@localhost [2]" uuid="d8097cdb-16d1-4f5b-a933-a2ac096399e4">
+-      <driver-ref>mysql.8</driver-ref>
+-      <synchronize>true</synchronize>
+-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+-      <jdbc-url>jdbc:mysql://localhost:8889</jdbc-url>
+-      <working-dir>$ProjectFileDir$</working-dir>
+-    </data-source>
+-  </component>
+-</project>
+\ No newline at end of file

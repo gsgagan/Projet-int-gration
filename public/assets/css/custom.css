@@ -1,0 +1,17 @@
+.custom-form-container {
+    width: 500px;
+    background: #1e1e1e; /* Adapté à ton thème sombre */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+.form-control {
+    background: #2a2a2a;
+    border: 1px solid #555;
+    color: white;
+}
+.btn-primary {
+    background: #a16f3f;
+    border-color: #a16f3f;
+}

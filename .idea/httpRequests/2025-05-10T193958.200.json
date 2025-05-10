@@ -1,0 +1,1254 @@
+[
+  {
+    "id": 1,
+    "slug": "nouveau-spectacle",
+    "title": "La légende de l’Enchanteur",
+    "poster_url": "2025-04-12-ea1c5d106ce956e64dad5c988a23d36140873954.png",
+    "duration": 90,
+    "created_in": 2025,
+    "bookable": true,
+    "short_desc": "Chanteuse énergique sous les projecteurs en pleine performance.",
+    "description": "Un décor féérique aux accents médiévaux sert de cadre à La légende de l’Enchanteur, un conte théâtral et musical qui mêle mystère, magie et émotions. Dans cette scène captivante, une héroïne élève la voix face au destin, éclairée par une lumière chaude évoquant la flamme intérieure du personnage principal.",
+    "location_id": {
+      "id": 1,
+      "slug": "notre-decription",
+      "designation": "notre decription",
+      "address": "Rue memling 47, 1070 Anderlecht",
+      "website": "www.google.com",
+      "phone": "0480000000",
+      "shows": [],
+      "representations": [],
+      "locality_id": {
+        "id": 1,
+        "postal_code": "1070",
+        "locality": "Anderlecht",
+        "locations": [
+          {
+            "id": 3,
+            "slug": "grand-place",
+            "designation": "grand place",
+            "address": "rue grand place 45",
+            "website": "www.grand-place.com",
+            "phone": "04I8233423",
+            "shows": [
+              {
+                "id": 5,
+                "slug": "theatre-classique",
+                "title": "Théâtre classique",
+                "poster_url": "2025-04-12-2796f31ed214bd1a3b385323dcaf374460beed62.png",
+                "duration": 100,
+                "created_in": 1992,
+                "bookable": true,
+                "short_desc": "Rideau rouge prêt à s’ouvrir dans un théâtre élégant.",
+                "description": "L’image montre l’instant suspendu avant le début d’un spectacle, avec un rideau rouge velours, un éclairage tamisé et une scène vide, emplie de promesse. Le décor suggère un théâtre classique, chic et intemporel.",
+                "schedule": [],
+                "artiste_type_shows": [],
+                "reviews": [],
+                "promoted": false,
+                "tags": []
+              }
+            ],
+            "representations": []
+          }
+        ]
+      }
+    },
+    "schedule": [
+      {
+        "id": 1,
+        "schedule": "2025-04-10T00:00:00+00:00",
+        "location_id": {
+          "id": 2,
+          "slug": "rue-du-progres-55",
+          "designation": "Rue du progrès 55",
+          "address": "Rue du progrès 55",
+          "website": "www.google.com",
+          "phone": "0444444444",
+          "shows": [
+            {
+              "id": 2,
+              "slug": "azerty",
+              "title": "Le Grand Silence",
+              "poster_url": "2025-04-12-666393f104f8ba51477c3a1e4dd21b0a4e7380d0.png",
+              "duration": 60,
+              "created_in": 2025,
+              "bookable": false,
+              "short_desc": "Projection d’ombres dans un spectacle visuel contemporain.",
+              "description": "Le Grand Silence explore la poésie de l'absence à travers un jeu d'ombres, de silhouettes et de compositions sonores. Une mise en scène minimaliste, en noir et blanc, qui laisse toute la place à l’interprétation et à l’imaginaire du spectateur. Un spectacle sensible et profondément visuel, où chaque silence compte.",
+              "schedule": [],
+              "artiste_type_shows": [],
+              "reviews": [],
+              "promoted": false,
+              "tags": []
+            },
+            {
+              "id": 3,
+              "slug": "leveil-des-muses",
+              "title": "L’éveil des Muses",
+              "poster_url": "2025-04-12-02b10ee16a329d615e7fc1b99fd174837319b242.png",
+              "duration": 145,
+              "created_in": 2025,
+              "bookable": true,
+              "short_desc": "Un artiste seul sur scène sous un jeu de lumières captivant.",
+              "description": "Un artiste se tient au centre de la scène, baigné dans une lumière dramatique bleue et rose, créant une ambiance électrisante. L’arrière-plan flou évoque un public captivé, soulignant l’intensité du moment.",
+              "schedule": [],
+              "artiste_type_shows": [],
+              "reviews": [],
+              "promoted": false,
+              "tags": []
+            }
+          ],
+          "representations": [],
+          "locality_id": {
+            "id": 2,
+            "postal_code": "1080",
+            "locality": "Molenbeek",
+            "locations": []
+          }
+        },
+        "representation_reservations": [
+          {
+            "id": 1,
+            "price_id": {
+              "id": 1,
+              "type": "type",
+              "price": "50.00",
+              "start_date": "2025-04-11T00:00:00+00:00",
+              "end_date": "2025-04-18T00:00:00+00:00",
+              "representation_reservations": []
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "artiste_type_shows": [
+      {
+        "id": 1,
+        "artiste_type_id": {
+          "id": 1,
+          "artist_id": {
+            "fullName": "Gagan Singh",
+            "id": 1,
+            "firstname": "Gagan",
+            "lastname": "Singh",
+            "artiste_types": [
+              {
+                "id": 5,
+                "type_id": {
+                  "id": 3,
+                  "type": "Metteur en scène",
+                  "artiste_types": [
+                    {
+                      "id": 3,
+                      "artist_id": {
+                        "fullName": "fabrice davoix",
+                        "id": 3,
+                        "firstname": "fabrice",
+                        "lastname": "davoix",
+                        "artiste_types": []
+                      },
+                      "artiste_type_shows": [
+                        {
+                          "id": 3
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "artiste_type_shows": []
+              }
+            ]
+          },
+          "type_id": {
+            "id": 1,
+            "type": "Chanteur",
+            "artiste_types": []
+          },
+          "artiste_type_shows": []
+        }
+      },
+      {
+        "id": 2,
+        "artiste_type_id": {
+          "id": 2,
+          "artist_id": {
+            "fullName": "lilian thuram",
+            "id": 2,
+            "firstname": "lilian",
+            "lastname": "thuram",
+            "artiste_types": []
+          },
+          "type_id": {
+            "id": 2,
+            "type": "Auteur",
+            "artiste_types": [
+              {
+                "id": 4,
+                "artist_id": {
+                  "fullName": "Yass Dashing",
+                  "id": 4,
+                  "firstname": "Yass",
+                  "lastname": "Dashing",
+                  "artiste_types": [
+                    {
+                      "id": 6,
+                      "type_id": {
+                        "id": 4,
+                        "type": "Danseur",
+                        "artiste_types": []
+                      },
+                      "artiste_type_shows": []
+                    }
+                  ]
+                },
+                "artiste_type_shows": [
+                  {
+                    "id": 4
+                  }
+                ]
+              }
+            ]
+          },
+          "artiste_type_shows": []
+        }
+      },
+      {
+        "id": 3,
+        "artiste_type_id": {
+          "id": 3,
+          "artist_id": {
+            "fullName": "fabrice davoix",
+            "id": 3,
+            "firstname": "fabrice",
+            "lastname": "davoix",
+            "artiste_types": []
+          },
+          "type_id": {
+            "id": 3,
+            "type": "Metteur en scène",
+            "artiste_types": [
+              {
+                "id": 5,
+                "artist_id": {
+                  "fullName": "Gagan Singh",
+                  "id": 1,
+                  "firstname": "Gagan",
+                  "lastname": "Singh",
+                  "artiste_types": [
+                    {
+                      "id": 1,
+                      "type_id": {
+                        "id": 1,
+                        "type": "Chanteur",
+                        "artiste_types": []
+                      },
+                      "artiste_type_shows": [
+                        {
+                          "id": 1
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "artiste_type_shows": []
+              }
+            ]
+          },
+          "artiste_type_shows": []
+        }
+      },
+      {
+        "id": 4,
+        "artiste_type_id": {
+          "id": 4,
+          "artist_id": {
+            "fullName": "Yass Dashing",
+            "id": 4,
+            "firstname": "Yass",
+            "lastname": "Dashing",
+            "artiste_types": [
+              {
+                "id": 6,
+                "type_id": {
+                  "id": 4,
+                  "type": "Danseur",
+                  "artiste_types": []
+                },
+                "artiste_type_shows": []
+              }
+            ]
+          },
+          "type_id": {
+            "id": 2,
+            "type": "Auteur",
+            "artiste_types": [
+              {
+                "id": 2,
+                "artist_id": {
+                  "fullName": "lilian thuram",
+                  "id": 2,
+                  "firstname": "lilian",
+                  "lastname": "thuram",
+                  "artiste_types": []
+                },
+                "artiste_type_shows": [
+                  {
+                    "id": 2
+                  }
+                ]
+              }
+            ]
+          },
+          "artiste_type_shows": []
+        }
+      }
+    ],
+    "reviews": [],
+    "promoted": true,
+    "tags": []
+  },
+  {
+    "id": 2,
+    "slug": "azerty",
+    "title": "Le Grand Silence",
+    "poster_url": "2025-04-12-666393f104f8ba51477c3a1e4dd21b0a4e7380d0.png",
+    "duration": 60,
+    "created_in": 2025,
+    "bookable": false,
+    "short_desc": "Projection d’ombres dans un spectacle visuel contemporain.",
+    "description": "Le Grand Silence explore la poésie de l'absence à travers un jeu d'ombres, de silhouettes et de compositions sonores. Une mise en scène minimaliste, en noir et blanc, qui laisse toute la place à l’interprétation et à l’imaginaire du spectateur. Un spectacle sensible et profondément visuel, où chaque silence compte.",
+    "location_id": {
+      "id": 2,
+      "slug": "rue-du-progres-55",
+      "designation": "Rue du progrès 55",
+      "address": "Rue du progrès 55",
+      "website": "www.google.com",
+      "phone": "0444444444",
+      "shows": [
+        {
+          "id": 3,
+          "slug": "leveil-des-muses",
+          "title": "L’éveil des Muses",
+          "poster_url": "2025-04-12-02b10ee16a329d615e7fc1b99fd174837319b242.png",
+          "duration": 145,
+          "created_in": 2025,
+          "bookable": true,
+          "short_desc": "Un artiste seul sur scène sous un jeu de lumières captivant.",
+          "description": "Un artiste se tient au centre de la scène, baigné dans une lumière dramatique bleue et rose, créant une ambiance électrisante. L’arrière-plan flou évoque un public captivé, soulignant l’intensité du moment.",
+          "schedule": [],
+          "artiste_type_shows": [],
+          "reviews": [],
+          "promoted": false,
+          "tags": []
+        }
+      ],
+      "representations": [
+        {
+          "id": 1,
+          "showshow_id": {
+            "id": 1,
+            "slug": "nouveau-spectacle",
+            "title": "La légende de l’Enchanteur",
+            "poster_url": "2025-04-12-ea1c5d106ce956e64dad5c988a23d36140873954.png",
+            "duration": 90,
+            "created_in": 2025,
+            "bookable": true,
+            "short_desc": "Chanteuse énergique sous les projecteurs en pleine performance.",
+            "description": "Un décor féérique aux accents médiévaux sert de cadre à La légende de l’Enchanteur, un conte théâtral et musical qui mêle mystère, magie et émotions. Dans cette scène captivante, une héroïne élève la voix face au destin, éclairée par une lumière chaude évoquant la flamme intérieure du personnage principal.",
+            "location_id": {
+              "id": 1,
+              "slug": "notre-decription",
+              "designation": "notre decription",
+              "address": "Rue memling 47, 1070 Anderlecht",
+              "website": "www.google.com",
+              "phone": "0480000000",
+              "shows": [],
+              "representations": [],
+              "locality_id": {
+                "id": 1,
+                "postal_code": "1070",
+                "locality": "Anderlecht",
+                "locations": [
+                  {
+                    "id": 3,
+                    "slug": "grand-place",
+                    "designation": "grand place",
+                    "address": "rue grand place 45",
+                    "website": "www.grand-place.com",
+                    "phone": "04I8233423",
+                    "shows": [
+                      {
+                        "id": 5,
+                        "slug": "theatre-classique",
+                        "title": "Théâtre classique",
+                        "poster_url": "2025-04-12-2796f31ed214bd1a3b385323dcaf374460beed62.png",
+                        "duration": 100,
+                        "created_in": 1992,
+                        "bookable": true,
+                        "short_desc": "Rideau rouge prêt à s’ouvrir dans un théâtre élégant.",
+                        "description": "L’image montre l’instant suspendu avant le début d’un spectacle, avec un rideau rouge velours, un éclairage tamisé et une scène vide, emplie de promesse. Le décor suggère un théâtre classique, chic et intemporel.",
+                        "schedule": [],
+                        "artiste_type_shows": [],
+                        "reviews": [],
+                        "promoted": false,
+                        "tags": []
+                      }
+                    ],
+                    "representations": []
+                  }
+                ]
+              }
+            },
+            "schedule": [],
+            "artiste_type_shows": [
+              {
+                "id": 1,
+                "artiste_type_id": {
+                  "id": 1,
+                  "artist_id": {
+                    "fullName": "Gagan Singh",
+                    "id": 1,
+                    "firstname": "Gagan",
+                    "lastname": "Singh",
+                    "artiste_types": [
+                      {
+                        "id": 5,
+                        "type_id": {
+                          "id": 3,
+                          "type": "Metteur en scène",
+                          "artiste_types": [
+                            {
+                              "id": 3,
+                              "artist_id": {
+                                "fullName": "fabrice davoix",
+                                "id": 3,
+                                "firstname": "fabrice",
+                                "lastname": "davoix",
+                                "artiste_types": []
+                              },
+                              "artiste_type_shows": [
+                                {
+                                  "id": 3
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "artiste_type_shows": []
+                      }
+                    ]
+                  },
+                  "type_id": {
+                    "id": 1,
+                    "type": "Chanteur",
+                    "artiste_types": []
+                  },
+                  "artiste_type_shows": []
+                }
+              },
+              {
+                "id": 2,
+                "artiste_type_id": {
+                  "id": 2,
+                  "artist_id": {
+                    "fullName": "lilian thuram",
+                    "id": 2,
+                    "firstname": "lilian",
+                    "lastname": "thuram",
+                    "artiste_types": []
+                  },
+                  "type_id": {
+                    "id": 2,
+                    "type": "Auteur",
+                    "artiste_types": [
+                      {
+                        "id": 4,
+                        "artist_id": {
+                          "fullName": "Yass Dashing",
+                          "id": 4,
+                          "firstname": "Yass",
+                          "lastname": "Dashing",
+                          "artiste_types": [
+                            {
+                              "id": 6,
+                              "type_id": {
+                                "id": 4,
+                                "type": "Danseur",
+                                "artiste_types": []
+                              },
+                              "artiste_type_shows": []
+                            }
+                          ]
+                        },
+                        "artiste_type_shows": [
+                          {
+                            "id": 4
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "artiste_type_shows": []
+                }
+              },
+              {
+                "id": 3,
+                "artiste_type_id": {
+                  "id": 3,
+                  "artist_id": {
+                    "fullName": "fabrice davoix",
+                    "id": 3,
+                    "firstname": "fabrice",
+                    "lastname": "davoix",
+                    "artiste_types": []
+                  },
+                  "type_id": {
+                    "id": 3,
+                    "type": "Metteur en scène",
+                    "artiste_types": [
+                      {
+                        "id": 5,
+                        "artist_id": {
+                          "fullName": "Gagan Singh",
+                          "id": 1,
+                          "firstname": "Gagan",
+                          "lastname": "Singh",
+                          "artiste_types": [
+                            {
+                              "id": 1,
+                              "type_id": {
+                                "id": 1,
+                                "type": "Chanteur",
+                                "artiste_types": []
+                              },
+                              "artiste_type_shows": [
+                                {
+                                  "id": 1
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "artiste_type_shows": []
+                      }
+                    ]
+                  },
+                  "artiste_type_shows": []
+                }
+              },
+              {
+                "id": 4,
+                "artiste_type_id": {
+                  "id": 4,
+                  "artist_id": {
+                    "fullName": "Yass Dashing",
+                    "id": 4,
+                    "firstname": "Yass",
+                    "lastname": "Dashing",
+                    "artiste_types": [
+                      {
+                        "id": 6,
+                        "type_id": {
+                          "id": 4,
+                          "type": "Danseur",
+                          "artiste_types": []
+                        },
+                        "artiste_type_shows": []
+                      }
+                    ]
+                  },
+                  "type_id": {
+                    "id": 2,
+                    "type": "Auteur",
+                    "artiste_types": [
+                      {
+                        "id": 2,
+                        "artist_id": {
+                          "fullName": "lilian thuram",
+                          "id": 2,
+                          "firstname": "lilian",
+                          "lastname": "thuram",
+                          "artiste_types": []
+                        },
+                        "artiste_type_shows": [
+                          {
+                            "id": 2
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "artiste_type_shows": []
+                }
+              }
+            ],
+            "reviews": [],
+            "promoted": true,
+            "tags": []
+          },
+          "schedule": "2025-04-10T00:00:00+00:00",
+          "representation_reservations": [
+            {
+              "id": 1,
+              "price_id": {
+                "id": 1,
+                "type": "type",
+                "price": "50.00",
+                "start_date": "2025-04-11T00:00:00+00:00",
+                "end_date": "2025-04-18T00:00:00+00:00",
+                "representation_reservations": []
+              },
+              "quantity": 1
+            }
+          ]
+        }
+      ],
+      "locality_id": {
+        "id": 2,
+        "postal_code": "1080",
+        "locality": "Molenbeek",
+        "locations": []
+      }
+    },
+    "schedule": [],
+    "artiste_type_shows": [],
+    "reviews": [],
+    "promoted": false,
+    "tags": []
+  },
+  {
+    "id": 3,
+    "slug": "leveil-des-muses",
+    "title": "L’éveil des Muses",
+    "poster_url": "2025-04-12-02b10ee16a329d615e7fc1b99fd174837319b242.png",
+    "duration": 145,
+    "created_in": 2025,
+    "bookable": true,
+    "short_desc": "Un artiste seul sur scène sous un jeu de lumières captivant.",
+    "description": "Un artiste se tient au centre de la scène, baigné dans une lumière dramatique bleue et rose, créant une ambiance électrisante. L’arrière-plan flou évoque un public captivé, soulignant l’intensité du moment.",
+    "location_id": {
+      "id": 2,
+      "slug": "rue-du-progres-55",
+      "designation": "Rue du progrès 55",
+      "address": "Rue du progrès 55",
+      "website": "www.google.com",
+      "phone": "0444444444",
+      "shows": [
+        {
+          "id": 2,
+          "slug": "azerty",
+          "title": "Le Grand Silence",
+          "poster_url": "2025-04-12-666393f104f8ba51477c3a1e4dd21b0a4e7380d0.png",
+          "duration": 60,
+          "created_in": 2025,
+          "bookable": false,
+          "short_desc": "Projection d’ombres dans un spectacle visuel contemporain.",
+          "description": "Le Grand Silence explore la poésie de l'absence à travers un jeu d'ombres, de silhouettes et de compositions sonores. Une mise en scène minimaliste, en noir et blanc, qui laisse toute la place à l’interprétation et à l’imaginaire du spectateur. Un spectacle sensible et profondément visuel, où chaque silence compte.",
+          "schedule": [],
+          "artiste_type_shows": [],
+          "reviews": [],
+          "promoted": false,
+          "tags": []
+        }
+      ],
+      "representations": [
+        {
+          "id": 1,
+          "showshow_id": {
+            "id": 1,
+            "slug": "nouveau-spectacle",
+            "title": "La légende de l’Enchanteur",
+            "poster_url": "2025-04-12-ea1c5d106ce956e64dad5c988a23d36140873954.png",
+            "duration": 90,
+            "created_in": 2025,
+            "bookable": true,
+            "short_desc": "Chanteuse énergique sous les projecteurs en pleine performance.",
+            "description": "Un décor féérique aux accents médiévaux sert de cadre à La légende de l’Enchanteur, un conte théâtral et musical qui mêle mystère, magie et émotions. Dans cette scène captivante, une héroïne élève la voix face au destin, éclairée par une lumière chaude évoquant la flamme intérieure du personnage principal.",
+            "location_id": {
+              "id": 1,
+              "slug": "notre-decription",
+              "designation": "notre decription",
+              "address": "Rue memling 47, 1070 Anderlecht",
+              "website": "www.google.com",
+              "phone": "0480000000",
+              "shows": [],
+              "representations": [],
+              "locality_id": {
+                "id": 1,
+                "postal_code": "1070",
+                "locality": "Anderlecht",
+                "locations": [
+                  {
+                    "id": 3,
+                    "slug": "grand-place",
+                    "designation": "grand place",
+                    "address": "rue grand place 45",
+                    "website": "www.grand-place.com",
+                    "phone": "04I8233423",
+                    "shows": [
+                      {
+                        "id": 5,
+                        "slug": "theatre-classique",
+                        "title": "Théâtre classique",
+                        "poster_url": "2025-04-12-2796f31ed214bd1a3b385323dcaf374460beed62.png",
+                        "duration": 100,
+                        "created_in": 1992,
+                        "bookable": true,
+                        "short_desc": "Rideau rouge prêt à s’ouvrir dans un théâtre élégant.",
+                        "description": "L’image montre l’instant suspendu avant le début d’un spectacle, avec un rideau rouge velours, un éclairage tamisé et une scène vide, emplie de promesse. Le décor suggère un théâtre classique, chic et intemporel.",
+                        "schedule": [],
+                        "artiste_type_shows": [],
+                        "reviews": [],
+                        "promoted": false,
+                        "tags": []
+                      }
+                    ],
+                    "representations": []
+                  }
+                ]
+              }
+            },
+            "schedule": [],
+            "artiste_type_shows": [
+              {
+                "id": 1,
+                "artiste_type_id": {
+                  "id": 1,
+                  "artist_id": {
+                    "fullName": "Gagan Singh",
+                    "id": 1,
+                    "firstname": "Gagan",
+                    "lastname": "Singh",
+                    "artiste_types": [
+                      {
+                        "id": 5,
+                        "type_id": {
+                          "id": 3,
+                          "type": "Metteur en scène",
+                          "artiste_types": [
+                            {
+                              "id": 3,
+                              "artist_id": {
+                                "fullName": "fabrice davoix",
+                                "id": 3,
+                                "firstname": "fabrice",
+                                "lastname": "davoix",
+                                "artiste_types": []
+                              },
+                              "artiste_type_shows": [
+                                {
+                                  "id": 3
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "artiste_type_shows": []
+                      }
+                    ]
+                  },
+                  "type_id": {
+                    "id": 1,
+                    "type": "Chanteur",
+                    "artiste_types": []
+                  },
+                  "artiste_type_shows": []
+                }
+              },
+              {
+                "id": 2,
+                "artiste_type_id": {
+                  "id": 2,
+                  "artist_id": {
+                    "fullName": "lilian thuram",
+                    "id": 2,
+                    "firstname": "lilian",
+                    "lastname": "thuram",
+                    "artiste_types": []
+                  },
+                  "type_id": {
+                    "id": 2,
+                    "type": "Auteur",
+                    "artiste_types": [
+                      {
+                        "id": 4,
+                        "artist_id": {
+                          "fullName": "Yass Dashing",
+                          "id": 4,
+                          "firstname": "Yass",
+                          "lastname": "Dashing",
+                          "artiste_types": [
+                            {
+                              "id": 6,
+                              "type_id": {
+                                "id": 4,
+                                "type": "Danseur",
+                                "artiste_types": []
+                              },
+                              "artiste_type_shows": []
+                            }
+                          ]
+                        },
+                        "artiste_type_shows": [
+                          {
+                            "id": 4
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "artiste_type_shows": []
+                }
+              },
+              {
+                "id": 3,
+                "artiste_type_id": {
+                  "id": 3,
+                  "artist_id": {
+                    "fullName": "fabrice davoix",
+                    "id": 3,
+                    "firstname": "fabrice",
+                    "lastname": "davoix",
+                    "artiste_types": []
+                  },
+                  "type_id": {
+                    "id": 3,
+                    "type": "Metteur en scène",
+                    "artiste_types": [
+                      {
+                        "id": 5,
+                        "artist_id": {
+                          "fullName": "Gagan Singh",
+                          "id": 1,
+                          "firstname": "Gagan",
+                          "lastname": "Singh",
+                          "artiste_types": [
+                            {
+                              "id": 1,
+                              "type_id": {
+                                "id": 1,
+                                "type": "Chanteur",
+                                "artiste_types": []
+                              },
+                              "artiste_type_shows": [
+                                {
+                                  "id": 1
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "artiste_type_shows": []
+                      }
+                    ]
+                  },
+                  "artiste_type_shows": []
+                }
+              },
+              {
+                "id": 4,
+                "artiste_type_id": {
+                  "id": 4,
+                  "artist_id": {
+                    "fullName": "Yass Dashing",
+                    "id": 4,
+                    "firstname": "Yass",
+                    "lastname": "Dashing",
+                    "artiste_types": [
+                      {
+                        "id": 6,
+                        "type_id": {
+                          "id": 4,
+                          "type": "Danseur",
+                          "artiste_types": []
+                        },
+                        "artiste_type_shows": []
+                      }
+                    ]
+                  },
+                  "type_id": {
+                    "id": 2,
+                    "type": "Auteur",
+                    "artiste_types": [
+                      {
+                        "id": 2,
+                        "artist_id": {
+                          "fullName": "lilian thuram",
+                          "id": 2,
+                          "firstname": "lilian",
+                          "lastname": "thuram",
+                          "artiste_types": []
+                        },
+                        "artiste_type_shows": [
+                          {
+                            "id": 2
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "artiste_type_shows": []
+                }
+              }
+            ],
+            "reviews": [],
+            "promoted": true,
+            "tags": []
+          },
+          "schedule": "2025-04-10T00:00:00+00:00",
+          "representation_reservations": [
+            {
+              "id": 1,
+              "price_id": {
+                "id": 1,
+                "type": "type",
+                "price": "50.00",
+                "start_date": "2025-04-11T00:00:00+00:00",
+                "end_date": "2025-04-18T00:00:00+00:00",
+                "representation_reservations": []
+              },
+              "quantity": 1
+            }
+          ]
+        }
+      ],
+      "locality_id": {
+        "id": 2,
+        "postal_code": "1080",
+        "locality": "Molenbeek",
+        "locations": []
+      }
+    },
+    "schedule": [],
+    "artiste_type_shows": [],
+    "reviews": [],
+    "promoted": false,
+    "tags": []
+  },
+  {
+    "id": 4,
+    "slug": "danseurs-en-pleine-performance",
+    "title": "Danseurs en pleine performance",
+    "poster_url": "2025-04-12-979892a0ad6657dde3d4f2e061cd0f70d784913d.png",
+    "duration": 123,
+    "created_in": 2025,
+    "bookable": true,
+    "short_desc": "Duo de danseurs modernes dans une chorégraphie intense.",
+    "description": "Deux danseurs évoluent en parfaite synchronisation sur une scène sombre, illuminée par des projecteurs rasants. Leurs corps expriment émotion, passion et puissance, capturant l’essence du mouvement.",
+    "schedule": [],
+    "artiste_type_shows": [],
+    "reviews": [],
+    "promoted": false,
+    "tags": []
+  },
+  {
+    "id": 5,
+    "slug": "theatre-classique",
+    "title": "Théâtre classique",
+    "poster_url": "2025-04-12-2796f31ed214bd1a3b385323dcaf374460beed62.png",
+    "duration": 100,
+    "created_in": 1992,
+    "bookable": true,
+    "short_desc": "Rideau rouge prêt à s’ouvrir dans un théâtre élégant.",
+    "description": "L’image montre l’instant suspendu avant le début d’un spectacle, avec un rideau rouge velours, un éclairage tamisé et une scène vide, emplie de promesse. Le décor suggère un théâtre classique, chic et intemporel.",
+    "location_id": {
+      "id": 3,
+      "slug": "grand-place",
+      "designation": "grand place",
+      "address": "rue grand place 45",
+      "website": "www.grand-place.com",
+      "phone": "04I8233423",
+      "shows": [],
+      "representations": [],
+      "locality_id": {
+        "id": 1,
+        "postal_code": "1070",
+        "locality": "Anderlecht",
+        "locations": [
+          {
+            "id": 1,
+            "slug": "notre-decription",
+            "designation": "notre decription",
+            "address": "Rue memling 47, 1070 Anderlecht",
+            "website": "www.google.com",
+            "phone": "0480000000",
+            "shows": [
+              {
+                "id": 1,
+                "slug": "nouveau-spectacle",
+                "title": "La légende de l’Enchanteur",
+                "poster_url": "2025-04-12-ea1c5d106ce956e64dad5c988a23d36140873954.png",
+                "duration": 90,
+                "created_in": 2025,
+                "bookable": true,
+                "short_desc": "Chanteuse énergique sous les projecteurs en pleine performance.",
+                "description": "Un décor féérique aux accents médiévaux sert de cadre à La légende de l’Enchanteur, un conte théâtral et musical qui mêle mystère, magie et émotions. Dans cette scène captivante, une héroïne élève la voix face au destin, éclairée par une lumière chaude évoquant la flamme intérieure du personnage principal.",
+                "schedule": [
+                  {
+                    "id": 1,
+                    "schedule": "2025-04-10T00:00:00+00:00",
+                    "location_id": {
+                      "id": 2,
+                      "slug": "rue-du-progres-55",
+                      "designation": "Rue du progrès 55",
+                      "address": "Rue du progrès 55",
+                      "website": "www.google.com",
+                      "phone": "0444444444",
+                      "shows": [
+                        {
+                          "id": 2,
+                          "slug": "azerty",
+                          "title": "Le Grand Silence",
+                          "poster_url": "2025-04-12-666393f104f8ba51477c3a1e4dd21b0a4e7380d0.png",
+                          "duration": 60,
+                          "created_in": 2025,
+                          "bookable": false,
+                          "short_desc": "Projection d’ombres dans un spectacle visuel contemporain.",
+                          "description": "Le Grand Silence explore la poésie de l'absence à travers un jeu d'ombres, de silhouettes et de compositions sonores. Une mise en scène minimaliste, en noir et blanc, qui laisse toute la place à l’interprétation et à l’imaginaire du spectateur. Un spectacle sensible et profondément visuel, où chaque silence compte.",
+                          "schedule": [],
+                          "artiste_type_shows": [],
+                          "reviews": [],
+                          "promoted": false,
+                          "tags": []
+                        },
+                        {
+                          "id": 3,
+                          "slug": "leveil-des-muses",
+                          "title": "L’éveil des Muses",
+                          "poster_url": "2025-04-12-02b10ee16a329d615e7fc1b99fd174837319b242.png",
+                          "duration": 145,
+                          "created_in": 2025,
+                          "bookable": true,
+                          "short_desc": "Un artiste seul sur scène sous un jeu de lumières captivant.",
+                          "description": "Un artiste se tient au centre de la scène, baigné dans une lumière dramatique bleue et rose, créant une ambiance électrisante. L’arrière-plan flou évoque un public captivé, soulignant l’intensité du moment.",
+                          "schedule": [],
+                          "artiste_type_shows": [],
+                          "reviews": [],
+                          "promoted": false,
+                          "tags": []
+                        }
+                      ],
+                      "representations": [],
+                      "locality_id": {
+                        "id": 2,
+                        "postal_code": "1080",
+                        "locality": "Molenbeek",
+                        "locations": []
+                      }
+                    },
+                    "representation_reservations": [
+                      {
+                        "id": 1,
+                        "price_id": {
+                          "id": 1,
+                          "type": "type",
+                          "price": "50.00",
+                          "start_date": "2025-04-11T00:00:00+00:00",
+                          "end_date": "2025-04-18T00:00:00+00:00",
+                          "representation_reservations": []
+                        },
+                        "quantity": 1
+                      }
+                    ]
+                  }
+                ],
+                "artiste_type_shows": [
+                  {
+                    "id": 1,
+                    "artiste_type_id": {
+                      "id": 1,
+                      "artist_id": {
+                        "fullName": "Gagan Singh",
+                        "id": 1,
+                        "firstname": "Gagan",
+                        "lastname": "Singh",
+                        "artiste_types": [
+                          {
+                            "id": 5,
+                            "type_id": {
+                              "id": 3,
+                              "type": "Metteur en scène",
+                              "artiste_types": [
+                                {
+                                  "id": 3,
+                                  "artist_id": {
+                                    "fullName": "fabrice davoix",
+                                    "id": 3,
+                                    "firstname": "fabrice",
+                                    "lastname": "davoix",
+                                    "artiste_types": []
+                                  },
+                                  "artiste_type_shows": [
+                                    {
+                                      "id": 3
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "artiste_type_shows": []
+                          }
+                        ]
+                      },
+                      "type_id": {
+                        "id": 1,
+                        "type": "Chanteur",
+                        "artiste_types": []
+                      },
+                      "artiste_type_shows": []
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "artiste_type_id": {
+                      "id": 2,
+                      "artist_id": {
+                        "fullName": "lilian thuram",
+                        "id": 2,
+                        "firstname": "lilian",
+                        "lastname": "thuram",
+                        "artiste_types": []
+                      },
+                      "type_id": {
+                        "id": 2,
+                        "type": "Auteur",
+                        "artiste_types": [
+                          {
+                            "id": 4,
+                            "artist_id": {
+                              "fullName": "Yass Dashing",
+                              "id": 4,
+                              "firstname": "Yass",
+                              "lastname": "Dashing",
+                              "artiste_types": [
+                                {
+                                  "id": 6,
+                                  "type_id": {
+                                    "id": 4,
+                                    "type": "Danseur",
+                                    "artiste_types": []
+                                  },
+                                  "artiste_type_shows": []
+                                }
+                              ]
+                            },
+                            "artiste_type_shows": [
+                              {
+                                "id": 4
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "artiste_type_shows": []
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "artiste_type_id": {
+                      "id": 3,
+                      "artist_id": {
+                        "fullName": "fabrice davoix",
+                        "id": 3,
+                        "firstname": "fabrice",
+                        "lastname": "davoix",
+                        "artiste_types": []
+                      },
+                      "type_id": {
+                        "id": 3,
+                        "type": "Metteur en scène",
+                        "artiste_types": [
+                          {
+                            "id": 5,
+                            "artist_id": {
+                              "fullName": "Gagan Singh",
+                              "id": 1,
+                              "firstname": "Gagan",
+                              "lastname": "Singh",
+                              "artiste_types": [
+                                {
+                                  "id": 1,
+                                  "type_id": {
+                                    "id": 1,
+                                    "type": "Chanteur",
+                                    "artiste_types": []
+                                  },
+                                  "artiste_type_shows": [
+                                    {
+                                      "id": 1
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "artiste_type_shows": []
+                          }
+                        ]
+                      },
+                      "artiste_type_shows": []
+                    }
+                  },
+                  {
+                    "id": 4,
+                    "artiste_type_id": {
+                      "id": 4,
+                      "artist_id": {
+                        "fullName": "Yass Dashing",
+                        "id": 4,
+                        "firstname": "Yass",
+                        "lastname": "Dashing",
+                        "artiste_types": [
+                          {
+                            "id": 6,
+                            "type_id": {
+                              "id": 4,
+                              "type": "Danseur",
+                              "artiste_types": []
+                            },
+                            "artiste_type_shows": []
+                          }
+                        ]
+                      },
+                      "type_id": {
+                        "id": 2,
+                        "type": "Auteur",
+                        "artiste_types": [
+                          {
+                            "id": 2,
+                            "artist_id": {
+                              "fullName": "lilian thuram",
+                              "id": 2,
+                              "firstname": "lilian",
+                              "lastname": "thuram",
+                              "artiste_types": []
+                            },
+                            "artiste_type_shows": [
+                              {
+                                "id": 2
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "artiste_type_shows": []
+                    }
+                  }
+                ],
+                "reviews": [],
+                "promoted": true,
+                "tags": []
+              }
+            ],
+            "representations": []
+          }
+        ]
+      }
+    },
+    "schedule": [],
+    "artiste_type_shows": [],
+    "reviews": [],
+    "promoted": false,
+    "tags": []
+  }
+]

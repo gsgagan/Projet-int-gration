@@ -1,0 +1,126 @@
+GET http://localhost:8000/api/shows
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: main_deauth_profile_token=a35001
+
+<> 2025-05-10T193958.200.json
+
+###
+
+GET http://localhost:8001/api/shows
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: main_deauth_profile_token=a35001
+
+<> 2025-05-06T194619.200.json
+
+###
+
+POST http://localhost:8000/api/login_check
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: main_deauth_profile_token=a35001
+
+{
+  "username": "admin",
+  "password": "password"
+}
+
+<> 2025-04-13T214208.404.html
+
+###
+
+GET http://localhost:8000/api/artist/1/shows
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: main_deauth_profile_token=a35001
+
+<> 2025-04-13T214158.200.json
+
+###
+
+GET http://localhost:8000/api/artists
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: main_deauth_profile_token=a35001
+
+<> 2025-04-13T214139.200.json
+
+###
+
+GET http://localhost:8000/api/show/1
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: main_deauth_profile_token=a35001
+
+<> 2025-04-13T214128.200.json
+
+###
+
+GET http://localhost:8000/api/shows/1
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: main_deauth_profile_token=a35001
+
+<> 2025-04-13T214109.404.json
+
+###
+
+GET http://localhost:8000/api/shows
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: main_deauth_profile_token=a35001
+
+<> 2025-04-13T214004.200.json
+
+###
+
+GET http://localhost:8000/api/api/shows
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: main_deauth_profile_token=a35001
+
+<> 2025-04-13T213946.404.json
+
+###
+
+GET http://localhost:8000/api/shows
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: main_deauth_profile_token=a35001
+
+<> 2025-04-13T213934.200.json
+
+###
+
+GET http://localhost:8000/api/shows/1
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Cookie: main_deauth_profile_token=a35001
+
+<> 2025-04-13T213754.404.json
+
+###
+
+GET http://localhost:8000/api/shows
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/PhpStorm 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-04-13T213726.200.json
+
+###
+

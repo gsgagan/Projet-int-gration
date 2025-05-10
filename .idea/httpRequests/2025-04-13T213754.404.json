@@ -1,0 +1,269 @@
+{
+  "type": "https:\/\/tools.ietf.org\/html\/rfc2616#section-10",
+  "title": "An error occurred",
+  "status": 404,
+  "detail": "No route found for \"GET http:\/\/localhost:8000\/api\/shows\/1\"",
+  "class": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+  "trace": [
+    {
+      "namespace": "",
+      "short_class": "",
+      "class": "",
+      "type": "",
+      "function": "",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/symfony\/http-kernel\/EventListener\/RouterListener.php",
+      "line": 149,
+      "args": []
+    },
+    {
+      "namespace": "Symfony\\Component\\HttpKernel\\EventListener",
+      "short_class": "RouterListener",
+      "class": "Symfony\\Component\\HttpKernel\\EventListener\\RouterListener",
+      "type": "->",
+      "function": "onKernelRequest",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/symfony\/event-dispatcher\/Debug\/WrappedListener.php",
+      "line": 115,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\RequestEvent"
+        ],
+        [
+          "string",
+          "kernel.request"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Debug\\TraceableEventDispatcher"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\EventDispatcher\\Debug",
+      "short_class": "WrappedListener",
+      "class": "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener",
+      "type": "->",
+      "function": "__invoke",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/symfony\/event-dispatcher\/EventDispatcher.php",
+      "line": 206,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\RequestEvent"
+        ],
+        [
+          "string",
+          "kernel.request"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Debug\\TraceableEventDispatcher"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\EventDispatcher",
+      "short_class": "EventDispatcher",
+      "class": "Symfony\\Component\\EventDispatcher\\EventDispatcher",
+      "type": "->",
+      "function": "callListeners",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/symfony\/event-dispatcher\/EventDispatcher.php",
+      "line": 56,
+      "args": [
+        [
+          "array",
+          [
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ]
+          ]
+        ],
+        [
+          "string",
+          "kernel.request"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\RequestEvent"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\EventDispatcher",
+      "short_class": "EventDispatcher",
+      "class": "Symfony\\Component\\EventDispatcher\\EventDispatcher",
+      "type": "->",
+      "function": "dispatch",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/symfony\/event-dispatcher\/Debug\/TraceableEventDispatcher.php",
+      "line": 122,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\RequestEvent"
+        ],
+        [
+          "string",
+          "kernel.request"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\EventDispatcher\\Debug",
+      "short_class": "TraceableEventDispatcher",
+      "class": "Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcher",
+      "type": "->",
+      "function": "dispatch",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/symfony\/http-kernel\/HttpKernel.php",
+      "line": 159,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\RequestEvent"
+        ],
+        [
+          "string",
+          "kernel.request"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\HttpKernel",
+      "short_class": "HttpKernel",
+      "class": "Symfony\\Component\\HttpKernel\\HttpKernel",
+      "type": "->",
+      "function": "handleRaw",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/symfony\/http-kernel\/HttpKernel.php",
+      "line": 76,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpFoundation\\Request"
+        ],
+        [
+          "integer",
+          1
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\HttpKernel",
+      "short_class": "HttpKernel",
+      "class": "Symfony\\Component\\HttpKernel\\HttpKernel",
+      "type": "->",
+      "function": "handle",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/symfony\/http-kernel\/Kernel.php",
+      "line": 182,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpFoundation\\Request"
+        ],
+        [
+          "integer",
+          1
+        ],
+        [
+          "boolean",
+          true
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\HttpKernel",
+      "short_class": "Kernel",
+      "class": "Symfony\\Component\\HttpKernel\\Kernel",
+      "type": "->",
+      "function": "handle",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/symfony\/runtime\/Runner\/Symfony\/HttpKernelRunner.php",
+      "line": 35,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpFoundation\\Request"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Runtime\\Runner\\Symfony",
+      "short_class": "HttpKernelRunner",
+      "class": "Symfony\\Component\\Runtime\\Runner\\Symfony\\HttpKernelRunner",
+      "type": "->",
+      "function": "run",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/autoload_runtime.php",
+      "line": 29,
+      "args": []
+    },
+    {
+      "namespace": "",
+      "short_class": "",
+      "class": "",
+      "type": "",
+      "function": "require_once",
+      "file": "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/public\/index.php",
+      "line": 5,
+      "args": [
+        [
+          "string",
+          "\/Users\/gagssingh\/Desktop\/Projet-int-gration\/vendor\/autoload_runtime.php"
+        ]
+      ]
+    }
+  ]
+}

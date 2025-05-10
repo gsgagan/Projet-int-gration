@@ -1,0 +1,15 @@
+Index: api-test.http
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>### Définir des variables\n@baseUrl = http://localhost:8001/api\n\n### Liste de tous les spectacles\nGET {{baseUrl}}/shows\n\n### Détails d'un spectacle\nGET {{baseUrl}}/show/1\nAccept: application/json\n\n### Liste de tous les artistes\nGET {{baseUrl}}/artists\nAccept: application/json\n\n### Détails d'un artiste\nGET {{baseUrl}}/artist/1\nAccept: application/json\n\n### Spectacles d'un artiste\nGET {{baseUrl}}/artist/1/shows\nAccept: application/json\n
+===================================================================
+diff --git a/api-test.http b/api-test.http
+--- a/api-test.http	(revision 171662e429ea92478c19c2afb1a0ac6d91aa01dc)
++++ b/api-test.http	(date 1746898798612)
+@@ -1,5 +1,5 @@
+ ### Définir des variables
+-@baseUrl = http://localhost:8001/api
++@baseUrl = http://localhost:8000/api
+ 
+ ### Liste de tous les spectacles
+ GET {{baseUrl}}/shows

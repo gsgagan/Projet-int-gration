@@ -1,0 +1,56 @@
+[
+  {
+    "fullName": "Gagan Singh",
+    "id": 1,
+    "firstname": "Gagan",
+    "lastname": "Singh"
+  },
+  {
+    "fullName": "lilian thuram",
+    "id": 2,
+    "firstname": "lilian",
+    "lastname": "thuram"
+  },
+  {
+    "fullName": "fabrice davoix",
+    "id": 3,
+    "firstname": "fabrice",
+    "lastname": "davoix"
+  },
+  {
+    "fullName": "Yass Dashing",
+    "id": 4,
+    "firstname": "Yass",
+    "lastname": "Dashing"
+  },
+  {
+    "fullName": "patrick bru",
+    "id": 5,
+    "firstname": "patrick",
+    "lastname": "bru"
+  },
+  {
+    "fullName": "daniel spa",
+    "id": 6,
+    "firstname": "daniel",
+    "lastname": "spa"
+  },
+  {
+    "fullName": "lara croft",
+    "id": 7,
+    "firstname": "lara",
+    "lastname": "croft"
+  },
+  {
+    "fullName": "songoku dragon",
+    "id": 8,
+    "firstname": "songoku",
+    "lastname": "dragon"
+  },
+  {
+    "fullName": "dragon ball",
+    "id": 9,
+    "firstname": "dragon",
+    "lastname": "ball"
+  }
+]

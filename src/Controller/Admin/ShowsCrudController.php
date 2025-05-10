@@ -21,7 +21,7 @@ class ShowsCrudController extends AbstractCrudController
         return Shows::class;
     }
 
-    
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -40,9 +40,16 @@ class ShowsCrudController extends AbstractCrudController
                 'choice_label' => 'designation',
             ]),
              BooleanField::new('bookable')->setLabel('Réservé'),
-             BooleanField::new('promoted')->setLabel('Mise en une')
-   
+             BooleanField::new('promoted')->setLabel('Mise en une'),
+            AssociationField::new('tags', 'Tags')
+                ->setFormTypeOptions([
+                    'class' => 'App\Entity\Tag',
+                    'choice_label' => 'tag',
+                    'multiple' => true,
+                    'by_reference' => false,
+                ]),
+
         ];
     }
-    
+
 }

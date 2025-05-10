@@ -137,9 +137,11 @@ class Shows
     private ?bool $promoted = null;
 
     /**
-     * @var Collection<int, Tags>
+     * @var Collection<int, Tag>
+     * @Serializer\Groups({"show"})
      */
-    #[ORM\OneToMany(mappedBy: 'showId', targetEntity: Tags::class)]
+    #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'showid')]
+    #[Serializer\Groups(["show"])]
     private Collection $tags;
 
     public function __construct()
@@ -371,30 +373,27 @@ class Shows
     }
 
     /**
-     * @return Collection<int, Tags>
+     * @return Collection<int, Tag>
      */
     public function getTags(): Collection
     {
         return $this->tags;
     }
 
-    public function addTag(Tags $tag): static
+    public function addTag(Tag $tag): static
     {
         if (!$this->tags->contains($tag)) {
             $this->tags->add($tag);
-            $tag->setShowId($this);
+            $tag->addShowid($this);
         }
 
         return $this;
     }
 
-    public function removeTag(Tags $tag): static
+    public function removeTag(Tag $tag): static
     {
         if ($this->tags->removeElement($tag)) {
-            // set the owning side to null (unless already changed)
-            if ($tag->getShowId() === $this) {
-                $tag->setShowId(null);
-            }
+            $tag->removeShowid($this);
         }
 
         return $this;

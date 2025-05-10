@@ -15,6 +15,28 @@
                 </div>
             </div>
         </div>
+        <!-- Ajout du formulaire de recherche -->
+        <div class="container">
+            <div class="search-box" style="margin: 20px 0; padding: 15px; background-color: #f8f8f8; border-radius: 5px;">
+                <form method="GET" action="{{ path('app_catalogue') }}">
+                    <div style="display: flex;">
+                        <input type="text" name="q" placeholder="Rechercher un spectacle..."
+                               style="flex-grow: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"
+                               value="{{ app.request.query.get('q') }}">
+                        <button type="submit" style="margin-left: 10px; padding: 10px 20px; background-color: #2991D6; color: white; border: none; border-radius: 4px;">
+                            Rechercher
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Affichage du nombre de résultats si une recherche est effectuée -->
+            {% if app.request.query.get('q') %}
+                <div style="margin-bottom: 20px;">
+                    <p>{{ spectacles|length }} résultat(s) trouvé(s) pour "{{ app.request.query.get('q') }}"</p>
+                </div>
+            {% endif %}
+        </div>
         <div id="Content">
             <div class="content_wrapper clearfix">
                 <div class="sections_group">

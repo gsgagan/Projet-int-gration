@@ -1,7 +1,7 @@
-{# templates/catalogue/index.html.twig #}
+{# templates/catalogue/without_tag.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Catalogue des spectacles{% endblock %}
+{% block title %}Spectacles sans le mot-clé "{{ tag.tag }}"{% endblock %}
 
 {% block body %}
     <div id="Wrapper">
@@ -9,56 +9,21 @@
             <div id="Subheader" style="padding:100px 0">
                 <div class="container">
                     <div class="column one">
-                        <h1 class="title">Catalogue des spectacles</h1>
+                        <h1 class="title">Spectacles sans le mot-clé "{{ tag.tag }}"</h1>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Formulaire de recherche -->
         <div class="container">
-            <div class="search-box" style="margin: 20px 0; padding: 15px; background-color: #f8f8f8; border-radius: 5px;">
-                <form method="GET" action="{{ path('app_catalogue') }}">
-                    <div style="display: flex;">
-                        <input type="text" name="q" placeholder="Rechercher un spectacle..."
-                               style="flex-grow: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"
-                               value="{{ searchTerm }}">
-                        <button type="submit" style="margin-left: 10px; padding: 10px 20px; background-color: #2991D6; color: white; border: none; border-radius: 4px;">
-                            Rechercher
-                        </button>
-                    </div>
-                </form>
-            </div>
+            <div style="margin: 20px 0;">
+                <a href="{{ path('app_catalogue') }}" class="button button_theme button_js">
+                    <span class="button_label">Retour au catalogue</span>
+                </a>
 
-            <!-- Affichage du nombre de résultats si une recherche est effectuée -->
-            {% if searchTerm %}
-                <div style="margin-bottom: 20px;">
-                    <p>{{ spectacles|length }} résultat(s) trouvé(s) pour "{{ searchTerm }}"</p>
-                </div>
-            {% endif %}
-        </div>
-
-        <div class="container">
-            <div style="margin: 20px 0; padding: 15px; background-color: #f8f8f8; border-radius: 5px;">
-                <h4>Filtres par mots-clés</h4>
-                <div style="margin-top: 10px;">
-                    <p>Afficher les spectacles qui n'ont pas le mot-clé :</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
-                        {% set displayedTags = [] %}
-                        {% for spectacle in spectacles %}
-                            {% for tag in spectacle.tags %}
-                                {% if tag.tag not in displayedTags %}
-                                    <a href="{{ path('app_catalogue_without_tag', { 'tagName': tag.tag }) }}"
-                                       style="display: inline-block; padding: 5px 12px; background-color: #e9e9e9; color: #333;
-                                     text-decoration: none; border-radius: 4px; font-size: 0.9em;">
-                                        <i class="fa fa-minus-circle" style="margin-right: 5px;"></i>{{ tag.tag }}
-                                    </a>
-                                    {% set displayedTags = displayedTags|merge([tag.tag]) %}
-                                {% endif %}
-                            {% endfor %}
-                        {% endfor %}
-                    </div>
-                </div>
+                <p style="margin-top: 15px;">
+                    Affichage de {{ spectacles|length }} spectacle(s) qui ne possèdent pas le mot-clé "{{ tag.tag }}".
+                </p>
             </div>
         </div>
 
@@ -85,6 +50,18 @@
                                             <div class="column mcb-column one column_column">
                                                 <div class="column_attr clearfix">
                                                     <h2>{{spectacle.title}}</h2>
+
+                                                    <!-- Affichage des tags du spectacle -->
+                                                    {% if spectacle.tags|length > 0 %}
+                                                        <div class="tags-container" style="margin-bottom: 15px;">
+                                                            {% for spectacleTag in spectacle.tags %}
+                                                                <span style="display: inline-block; background-color: #2991D6; color: white; padding: 3px 8px; margin-right: 5px; border-radius: 3px; font-size: 0.8em;">
+                                                                    {{ spectacleTag.tag }}
+                                                                </span>
+                                                            {% endfor %}
+                                                        </div>
+                                                    {% endif %}
+
                                                     <p>
                                                         {{spectacle.shortDesc}}
                                                     </p>
@@ -126,7 +103,7 @@
                         {% else %}
                             <div class="container">
                                 <div class="alert alert-info" style="padding: 15px; background-color: #e7f3fe; border-left: 6px solid #2991D6; margin-bottom: 20px;">
-                                    <p style="margin: 0;">Aucun spectacle ne correspond à votre recherche.</p>
+                                    <p style="margin: 0;">Tous les spectacles possèdent le mot-clé "{{ tag.tag }}".</p>
                                 </div>
                             </div>
                         {% endfor %}

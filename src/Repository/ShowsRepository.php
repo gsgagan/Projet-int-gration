@@ -31,7 +31,18 @@ class ShowsRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-    
+
+    public function findBySearch(string $searchTerm): array
+    {
+        return $this->createQueryBuilder('s')
+            ->where('s.title LIKE :search')
+            ->orWhere('s.shortDesc LIKE :search')
+            // Si vous avez d'autres champs à inclure dans la recherche, ajoutez-les ici
+            ->setParameter('search', '%'.$searchTerm.'%')
+            ->orderBy('s.title', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 
  public function findShowWithDetailsBySlug(string $slug): ?object
 {

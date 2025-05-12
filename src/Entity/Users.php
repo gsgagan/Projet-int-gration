@@ -58,11 +58,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: RoleUser::class, mappedBy: 'userId')]
     private Collection $roleUsers;
 
+    /**
+     * @var Collection<int, Rating>
+     */
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Rating::class)]
+    private Collection $spectacle;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->roleUsers = new ArrayCollection();
+        $this->spectacle = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -281,6 +288,36 @@ public function setUserRole(string $role): static
             // set the owning side to null (unless already changed)
             if ($roleUser->getUserId() === $this) {
                 $roleUser->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Rating>
+     */
+    public function getSpectacle(): Collection
+    {
+        return $this->spectacle;
+    }
+
+    public function addSpectacle(Rating $spectacle): static
+    {
+        if (!$this->spectacle->contains($spectacle)) {
+            $this->spectacle->add($spectacle);
+            $spectacle->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpectacle(Rating $spectacle): static
+    {
+        if ($this->spectacle->removeElement($spectacle)) {
+            // set the owning side to null (unless already changed)
+            if ($spectacle->getUser() === $this) {
+                $spectacle->setUser(null);
             }
         }
 

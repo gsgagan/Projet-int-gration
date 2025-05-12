@@ -1,0 +1,1 @@
+import{j as e,c as r,r as s}from"./client.js";function t(){return e.jsxs("div",{className:"App",children:[e.jsx("header",{className:"App-header",children:e.jsx("h1",{children:"Réservation de Spectacles"})}),e.jsx("main",{})]})}r.createRoot(document.getElementById("root")).render(e.jsx(s.StrictMode,{children:e.jsx(t,{})}));

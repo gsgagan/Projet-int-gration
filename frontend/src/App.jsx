@@ -1,15 +1,17 @@
-// frontend/src/App.jsx
-
 import React from 'react';
-import LocationList from './components/LocationList';
+import './App.css';
 
 function App() {
-  return (
-    <div style={{ padding: '2rem' }}>
-      <h1>🎭 Bienvenue sur FindrFood</h1>
-      <LocationList />
-    </div>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <h1>Réservation de Spectacles</h1>
+            </header>
+            <main>
+                {/* Contenu principal ici */}
+            </main>
+        </div>
+    );
 }
 
 export default App;

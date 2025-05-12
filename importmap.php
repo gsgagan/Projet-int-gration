@@ -25,4 +25,25 @@ return [
     '@hotwired/turbo' => [
         'version' => '7.3.0',
     ],
+    'react' => [
+        'version' => '19.1.0',
+    ],
+    'react-dom/client' => [
+        'version' => '19.1.0',
+    ],
+    'scheduler' => [
+        'version' => '0.26.0',
+    ],
+    'react-dom' => [
+        'version' => '19.1.0',
+    ],
+    'axios' => [
+        'version' => '1.9.0',
+    ],
+    'vite' => [
+        'version' => '6.3.5',
+    ],
+    '@vitejs/plugin-react' => [
+        'version' => '4.4.1',
+    ],
 ];

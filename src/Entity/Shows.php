@@ -144,12 +144,19 @@ class Shows
     #[Serializer\Groups(["show"])]
     private Collection $tags;
 
+    /**
+     * @var Collection<int, Rating>
+     */
+    #[ORM\OneToMany(mappedBy: 'shows', targetEntity: Rating::class)]
+    private Collection $ratings;
+
     public function __construct()
     {
         $this->schedule = new ArrayCollection();
         $this->artisteTypeShows = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->tags = new ArrayCollection();
+        $this->ratings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -394,6 +401,36 @@ class Shows
     {
         if ($this->tags->removeElement($tag)) {
             $tag->removeShowid($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Rating>
+     */
+    public function getRatings(): Collection
+    {
+        return $this->ratings;
+    }
+
+    public function addRating(Rating $rating): static
+    {
+        if (!$this->ratings->contains($rating)) {
+            $this->ratings->add($rating);
+            $rating->setShows($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRating(Rating $rating): static
+    {
+        if ($this->ratings->removeElement($rating)) {
+            // set the owning side to null (unless already changed)
+            if ($rating->getShows() === $this) {
+                $rating->setShows(null);
+            }
         }
 
         return $this;

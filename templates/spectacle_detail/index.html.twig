@@ -2,9 +2,15 @@
 
 {% block title %}Hello SpectacleDetailController!{% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script type="module" src="/build/assets/rating.js"></script>
+{% endblock %}
+
+
 {% block body %}
 
-
+    <script type="module" src="/build/assets/rating.js"></script>
 <div id="Wrapper">
         <div id="Header_wrapper">
             <div id="Subheader" style="padding:100px 0">
@@ -37,8 +43,8 @@
                                             </div>
                                             <div class="summary entry-summary column one-second">
                                                 <h1 class="product_title entry-title">{{spectacle.title}}</h1>
-                                             
-                                        
+
+
                                                 <div class="woocommerce-product-details__short-description">
                                                     <p>
                                                         {{spectacle.description}}
@@ -51,13 +57,13 @@
                                                     {% if spectacle.locationId and spectacle.locationId.localityId %}
                                                         <span class="spectacle-duration">
                                                             <i class="fa-solid fa-location-dot"></i>
-                                                            
+
                                                                 {{ spectacle.locationId.designation }}
 
                                                                 <!-- A garder pour plus tard si besoin est-->
-                                                               <!-- {{ spectacle.locationId.localityId.postalCode }} 
+                                                               <!-- {{ spectacle.locationId.localityId.postalCode }}
                                                                 {{ spectacle.locationId.localityId.locality }}-->
-                                                        
+
                                                         </span>
                                                     {% endif %}
 
@@ -72,7 +78,7 @@
                                                                     {% endif %}
                                                                 {% endfor %}
                                                             {% endfor %}
-                                                            
+
                                                             {% if prix is not null %}
                                                                 {{ prix }} €
                                                             {% else %}
@@ -80,7 +86,7 @@
                                                             {% endif %}
                                                         </span>
                                                     </span>
-                                                    
+
                                                 </div>
 
                                                 <div class="show-details-container">
@@ -210,6 +216,11 @@
                                                     </a>
                                                 {% endif %}
 
+                                                <div id="star-rating-component"
+                                                     data-show-id="{{ spectacle.id }}"
+                                                     data-user-logged-in="{{ app.user ? 'true' : 'false' }}">
+                                                    {# Le composant React sera rendu ici #}
+                                                </div>
 
                                                 <div class="product_meta">
                                                     <span class="posted_in">Category: <a href="#" rel="tag">Uncategorized</a></span>

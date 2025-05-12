@@ -195,6 +195,7 @@
       <path value="$PROJECT_DIR$/vendor/phpstan 2/phpdoc-parser" />
       <path value="$PROJECT_DIR$/vendor/masterminds 2/html5" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />

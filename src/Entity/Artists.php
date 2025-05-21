@@ -61,6 +61,9 @@ class Artists
     #[Serializer\Groups(["artist"])]
     private Collection $artisteTypes;
 
+    #[ORM\ManyToOne(inversedBy: 'artists')]
+    private ?Troupe $troupe = null;
+
     public function __construct()
     {
         $this->artisteTypes = new ArrayCollection();
@@ -141,5 +144,17 @@ class Artists
     public function __toString(): string
     {
         return $this->firstname ?? 'Pas de nom';
+    }
+
+    public function getTroupe(): ?Troupe
+    {
+        return $this->troupe;
+    }
+
+    public function setTroupe(?Troupe $troupe): static
+    {
+        $this->troupe = $troupe;
+
+        return $this;
     }
 }

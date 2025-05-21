@@ -4,29 +4,49 @@
 
 {% block body %}
 
-<div class="artist-profile">
-    <div class="artist-header">
-        <div class="artist-avatar">
-            <i class="fa-solid fa-user-circle"></i>
-        </div>
-        <h1 class="artist-name">{{ artist.firstname }} {{ artist.lastname }}</h1>
-    </div>
-    
-    <div class="artist-types-section">
-        {% if artisteTypes|length > 0 %}
-            <div class="types-container">
-                {% for artisteType in artisteTypes %}
-                    <div class="type-badge">
-                        <i class="fa-solid fa-theater-masks"></i>
-                        <span>{{ artisteType.typeId.type }}</span>
-                    </div>
-                {% endfor %}
+    <div class="artist-profile">
+        <div class="artist-header">
+            <div class="artist-avatar">
+                <i class="fa-solid fa-user-circle"></i>
             </div>
-        {% else %}
-            <p class="no-types">Aucun type associé à cet artiste.</p>
-        {% endif %}
+            <h1 class="artist-name">{{ artist.firstname }} {{ artist.lastname }}</h1>
+        </div>
+
+        <div class="artist-troupe-section">
+            <h3>Troupe</h3>
+            {% if artist.troupe %}
+                <p>{{ artist.troupe.name }}</p>
+                {% if artist.troupe.logoUrl %}
+                    <img src="{{ artist.troupe.logoUrl }}" alt="Logo de {{ artist.troupe.name }}" width="50">
+                {% endif %}
+            {% else %}
+                <p>Non affilié</p>
+            {% endif %}
+
+
+            {% if troupe_form is defined and troupe_form is not null %}
+                <div class="troupe-affiliation-form mt-3">
+                    <h4>Modifier l'affiliation</h4>
+                    {{ form(troupe_form) }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="artist-types-section">
+            {% if artisteTypes|length > 0 %}
+                <div class="types-container">
+                    {% for artisteType in artisteTypes %}
+                        <div class="type-badge">
+                            <i class="fa-solid fa-theater-masks"></i>
+                            <span>{{ artisteType.typeId.type }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="no-types">Aucun type associé à cet artiste.</p>
+            {% endif %}
+        </div>
     </div>
-</div>
 
 <style>
     .artist-profile {

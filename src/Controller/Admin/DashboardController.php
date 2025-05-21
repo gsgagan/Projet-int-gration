@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Tags;
+use App\Entity\Troupe;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -57,5 +58,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Artiste_Type', 'fas fa-user', ArtisteType::class);
         yield MenuItem::linkToCrud('Artiste_Type_Show', 'fas fa-user', ArtisteTypeShow::class);
         yield MenuItem::linkToCrud('Tags', 'fas fa-user', Tags::class);
+        yield MenuItem::linkToCrud('Troupe', 'fas fa-user', Troupe::class);
     }
 }

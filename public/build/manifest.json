@@ -1,0 +1,12 @@
+{
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/rating-app.js": "/build/rating-app.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/assets_controllers_csrf_protection_controller_js.js": "/build/assets_controllers_csrf_protection_controller_js.js",
+  "build/vendors-node_modules_core-js_internals_a-constructor_js-node_modules_core-js_internals_this-n-922b27.js": "/build/vendors-node_modules_core-js_internals_a-constructor_js-node_modules_core-js_internals_this-n-922b27.js",
+  "build/vendors-node_modules_core-js_internals_array-method-is-strict_js-node_modules_core-js_interna-e75963.js": "/build/vendors-node_modules_core-js_internals_array-method-is-strict_js-node_modules_core-js_interna-e75963.js",
+  "build/vendors-node_modules_core-js_modules_es_array-buffer_constructor_js-node_modules_core-js_modu-749402.js": "/build/vendors-node_modules_core-js_modules_es_array-buffer_constructor_js-node_modules_core-js_modu-749402.js",
+  "build/vendors-node_modules_react-dom_client_js-node_modules_react_jsx-runtime_js-node_modules_core--bfd62e.js": "/build/vendors-node_modules_react-dom_client_js-node_modules_react_jsx-runtime_js-node_modules_core--bfd62e.js",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_da-89d4a9.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_da-89d4a9.js"
+}
